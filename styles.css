@@ -1,0 +1,219 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #F8F9FA;
+}
+
+.hero {
+    background: #ffffff;
+}
+
+.hero .card {
+    border-radius: 1rem;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+}
+
+.navbar-title {
+    font-family: fangsong;
+}
+
+/* ACCORDION */
+.accordion {
+    width: 100%;
+    font-size: 1.2rem;
+    background: #8C1919;
+    color: #fff;
+    /* mejor contraste */
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: all 0.3s ease;
+}
+
+/* Hover elegante */
+.accordion:hover {
+    background: #a32020;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Estado activo */
+.accordion.active {
+    background: #6e1313;
+}
+
+/* Icono (flecha) */
+.accordion::after {
+    content: "▼";
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+/* Rotación al abrir */
+.accordion.active::after {
+    transform: rotate(180deg);
+}
+
+.panel {
+    display: none;
+    padding: 10px 0;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+/* COLUMNAS */
+.col {
+    background: #e5e5e5;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.col-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.col-header a {
+    color: #8C1919;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* TABLA */
+.tabla {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    font-size: 12px;
+}
+
+th {
+    text-align: left;
+    color: #8C1919;
+}
+
+td {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.custom-carousel img {
+    filter: brightness(0.4) sepia(0.3) hue-rotate(-10deg);
+}
+
+img {
+    width: 100%;
+    height: 25rem;
+    object-fit: cover;
+    object-position: center;
+    /* Por defecto, centrado */
+    object-position: top;
+    /* Enfoque en la parte superior */
+    object-position: bottom;
+    /* Enfoque en la parte inferior */
+    object-position: left;
+    /* Enfoque a la izquierda */
+    object-position: right;
+    /* Enfoque a la derecha */
+    object-position: 30% 80%;
+    /* Coordenadas personalizadas (x% y%) */
+}
+
+/* Matriculas */
+.container_Matriculas {
+    background: #8C1919;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+.container_Matriculas {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* texto más ancho */
+    gap: 30px;
+    background: #8C1919;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+/* TEXTO */
+.info {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* TABLAS */
+.tabla-container {
+    width: 100%;
+}
+
+.container_Matriculas {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 30px;
+    background: #8C1919;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}
+
+/* TABLA */
+.tabla-honor {
+    background: #eaeaea;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ENCABEZADO */
+.tabla-honor thead {
+    background: #f5f5f5;
+}
+
+.tabla-honor th {
+    padding: 12px;
+    font-size: 13px;
+    text-align: left;
+    color: #333;
+}
+
+/* FILAS */
+.tabla-honor td {
+    padding: 12px;
+    font-size: 13px;
+    border-top: 1px solid #ddd;
+}
+
+/* EFECTO HOVER */
+.tabla-honor tbody tr:hover {
+    background: #dcdcdc;
+}
+
+/* ICONO CHECK */
+.check {
+    width: 12px;
+    height: 12px;
+    background: #0f766e;
+    border-radius: 50%;
+    display: inline-block;
+}

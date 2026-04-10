@@ -1,0 +1,633 @@
+{
+  "estudiantes": [
+    {
+      "semestre": "20201",
+      "codigo": "20201005035",
+      "nombre": "ROMERO MONTOYA NICOLAS ALEJANDRO"
+    },
+    {
+      "semestre": "20201",
+      "codigo": "20201005085",
+      "nombre": "CALDERON MORA JUAN SEBASTIAN"
+    },
+    {
+      "semestre": "20201",
+      "codigo": "20201005054",
+      "nombre": "GARZON PACHECO NICOLAS JOSE"
+    },
+    {
+      "semestre": "20201",
+      "codigo": "20201005188",
+      "nombre": "FORERO URIZA OMAR FABIAN"
+    },
+    {
+      "semestre": "20201",
+      "codigo": "20201005186",
+      "nombre": "BAYONA CARRILLO SANTIAGO"
+    },
+    {
+      "semestre": "20201",
+      "codigo": "20201005164",
+      "nombre": "BERMUDEZ ROMERO MARTIN FELIPE"
+    },
+    {
+      "semestre": "20201",
+      "codigo": "20201005090",
+      "nombre": "FONTECHA HERNANDEZ MANUEL DAVID"
+    },
+    {
+      "semestre": "20201",
+      "codigo": "20201005034",
+      "nombre": "SALGUERO ENCISO SANTIAGO"
+    },
+    {
+      "semestre": "20201",
+      "codigo": "20201005150",
+      "nombre": "VILLARRAGA ARDILA ANGIE TATIANA"
+    },
+    {
+      "semestre": "20201",
+      "codigo": "20201005155",
+      "nombre": "VALENZUELA VILLATE DANIEL HERNANDO"
+    },
+    {
+      "semestre": "20202",
+      "codigo": "20202005150",
+      "nombre": "REY VELASQUEZ CARLOS ANDRES"
+    },
+    {
+      "semestre": "20202",
+      "codigo": "20202005052",
+      "nombre": "SANCHEZ SUAREZ LEIDY JOHANA"
+    },
+    {
+      "semestre": "20202",
+      "codigo": "20202005047",
+      "nombre": "DIAZ TEJADA LAURA ALEJANDRA"
+    },
+    {
+      "semestre": "20202",
+      "codigo": "20202005098",
+      "nombre": "PAEZ BERMEO DANIEL FELIPE"
+    },
+    {
+      "semestre": "20202",
+      "codigo": "20202005099",
+      "nombre": "MICHAEL STEVEN DE LOS RIOS RODRIGUEZ"
+    },
+    {
+      "semestre": "20202",
+      "codigo": "20202005022",
+      "nombre": "SALAZAR MENDEZ ELVIS"
+    },
+    {
+      "semestre": "20202",
+      "codigo": "20202005070",
+      "nombre": "RODRIGUEZ GARCIA JUAN CAMILO"
+    },
+    {
+      "semestre": "20202",
+      "codigo": "20202005053",
+      "nombre": "POSADA APONTE DIEGO FERNANDO"
+    },
+    {
+      "semestre": "20202",
+      "codigo": "20202005152",
+      "nombre": "LEON OLAYA KAREN TATIANA"
+    },
+    {
+      "semestre": "20202",
+      "codigo": "20202010003",
+      "nombre": "MORALES MARTINEZ KEVIN DAVID"
+    },
+    {
+      "semestre": "20211",
+      "codigo": "20211005116",
+      "nombre": "POBLADOR PARRA OSCAR DAVID"
+    },
+    {
+      "semestre": "20211",
+      "codigo": "20211005061",
+      "nombre": "GUIO CARDONA MANUEL ALEJANDRO"
+    },
+    {
+      "semestre": "20211",
+      "codigo": "20211005107",
+      "nombre": "SALAMANCA PULIDO MATEO"
+    },
+    {
+      "semestre": "20211",
+      "codigo": "20211005028",
+      "nombre": "BELLO RODRIGUEZ JUAN DAVID"
+    },
+    {
+      "semestre": "20211",
+      "codigo": "20211005031",
+      "nombre": "CASAS BARBOSA JUAN SEBASTIAN"
+    },
+    {
+      "semestre": "20211",
+      "codigo": "20211005008",
+      "nombre": "CHAPARRO SANCHEZ PAULA ANDREA"
+    },
+    {
+      "semestre": "20211",
+      "codigo": "20211005052",
+      "nombre": "MORENO GOENZ JUAN ESTEBAN"
+    },
+    {
+      "semestre": "20211",
+      "codigo": "20211005029",
+      "nombre": "CARDENAS MURCIA JUAN CAMILO"
+    },
+    {
+      "semestre": "20211",
+      "codigo": "20211005097",
+      "nombre": "SANTAMARIA TORRES ALEJANDRO"
+    },
+    {
+      "semestre": "20211",
+      "codigo": "20211005048",
+      "nombre": "CAMARGO BERNATE FABIAN LEONARDO"
+    },
+    {
+      "semestre": "20212",
+      "codigo": "20212005026",
+      "nombre": "GALLO SUAREZ DIEGO ALEXANDER"
+    },
+    {
+      "semestre": "20212",
+      "codigo": "20212005142",
+      "nombre": "MACIAS PAZ SANTIAGO ANDRES"
+    },
+    {
+      "semestre": "20212",
+      "codigo": "20212005141",
+      "nombre": "MACIAS PAZ NICOLAS FELIPE"
+    },
+    {
+      "semestre": "20212",
+      "codigo": "20212005043",
+      "nombre": "CUSPOCA DELGADO JUAN CAMILO"
+    },
+    {
+      "semestre": "20212",
+      "codigo": "20212005011",
+      "nombre": "REYES BARRIOS JOEL EDUARDO"
+    },
+    {
+      "semestre": "20212",
+      "codigo": "20212005117",
+      "nombre": "NIETO CRUZ HOSMAN JAVIER"
+    },
+    {
+      "semestre": "20212",
+      "codigo": "20212005105",
+      "nombre": "MELO PRIETO JONATHAN EMMANUEL"
+    },
+    {
+      "semestre": "20212",
+      "codigo": "20212005063",
+      "nombre": "OLIVARES HERRERA MICHAEL ANDRES"
+    },
+    {
+      "semestre": "20212",
+      "codigo": "20212005090",
+      "nombre": "ESTEFANIA POLO MOLANO"
+    },
+    {
+      "semestre": "20212",
+      "codigo": "20212005140",
+      "nombre": "MORENO OVALLE NICOLAS"
+    },
+    {
+      "semestre": "20221",
+      "codigo": "20221005013",
+      "nombre": "GARZON NAVARRO MAIRA ALEJANDRA"
+    },
+    {
+      "semestre": "20221",
+      "codigo": "20221005006",
+      "nombre": "BAQUERO BELLO JEISSON DUVAN"
+    },
+    {
+      "semestre": "20221",
+      "codigo": "20221005031",
+      "nombre": "RAIGOSO BUSTOS FERLEY SANTIAGO"
+    },
+    {
+      "semestre": "20221",
+      "codigo": "20221005010",
+      "nombre": "LESMES MUÑOZ NICOLAS"
+    },
+    {
+      "semestre": "20221",
+      "codigo": "20221005118",
+      "nombre": "CALDERON RESTREPO JAVIER SIMON"
+    },
+    {
+      "semestre": "20221",
+      "codigo": "20221005066",
+      "nombre": "GANTIVAR CASTAÑEDA JUAN FERNANDO"
+    },
+    {
+      "semestre": "20221",
+      "codigo": "20221005081",
+      "nombre": "PINEDA AVILA ANDRES FAVIAN"
+    },
+    {
+      "semestre": "20221",
+      "codigo": "20221005025",
+      "nombre": "RAMIREZ CUSTODE CARLOS ARTURO"
+    },
+    {
+      "semestre": "20221",
+      "codigo": "20221005117",
+      "nombre": "CANO RUEDA ABEL FELIPE"
+    },
+    {
+      "semestre": "20221",
+      "codigo": "20221005049",
+      "nombre": "GUARIN MURILLO ANDRES EDUARDO"
+    },
+    {
+      "semestre": "20222",
+      "codigo": "20222005067",
+      "nombre": "CRUZ AYALA KENNETH ALEJANDRO"
+    },
+    {
+      "semestre": "20222",
+      "codigo": "20222005083",
+      "nombre": "NIETO VELOZA NATALIA"
+    },
+    {
+      "semestre": "20222",
+      "codigo": "20222005017",
+      "nombre": "PEÑA MUÑOZ THOMAS KALEB"
+    },
+    {
+      "semestre": "20222",
+      "codigo": "20222005157",
+      "nombre": "MELO ZAMBRANO JUAN FELIPE"
+    },
+    {
+      "semestre": "20222",
+      "codigo": "20222005138",
+      "nombre": "RUBIANO CORREA JUAN NICOLAS"
+    },
+    {
+      "semestre": "20222",
+      "codigo": "20222005079",
+      "nombre": "CAMACHO CRUZ YUBAN SEBASTIAN"
+    },
+    {
+      "semestre": "20222",
+      "codigo": "20222005078",
+      "nombre": "BARRERA SUA DAVID ALEJANDRO"
+    },
+    {
+      "semestre": "20222",
+      "codigo": "20222005037",
+      "nombre": "BENITEZ BALLESTEROS ROBBIE STEPHEN"
+    },
+    {
+      "semestre": "20222",
+      "codigo": "20222005109",
+      "nombre": "MOJICA AVENDAÑO JONATAN ESTEBAN"
+    },
+    {
+      "semestre": "20222",
+      "codigo": "20222005085",
+      "nombre": "CARO FARFAN SHARON IVETTE"
+    },
+    {
+      "semestre": "20231",
+      "codigo": "20231005111",
+      "nombre": "GOMEZ POVEDA DIEGO ERNESTO"
+    },
+    {
+      "semestre": "20231",
+      "codigo": "20231005136",
+      "nombre": "ORTEGON CRUZ DANA MARCELA"
+    },
+    {
+      "semestre": "20231",
+      "codigo": "20231005137",
+      "nombre": "GUTIERREZ HEREDIA ANDERSSON STIVEN"
+    },
+    {
+      "semestre": "20231",
+      "codigo": "20231005155",
+      "nombre": "LOPEZ AYALA LUVER EDUARDO"
+    },
+    {
+      "semestre": "20231",
+      "codigo": "20231005088",
+      "nombre": "SANCHEZ ARIAS JOHANA KATHERINE"
+    },
+    {
+      "semestre": "20231",
+      "codigo": "20231005125",
+      "nombre": "RESTREPO RAMIREZ MATEO"
+    },
+    {
+      "semestre": "20231",
+      "codigo": "20231005018",
+      "nombre": "ROJAS FERNANDEZ FERNANDO ANDRES"
+    },
+    {
+      "semestre": "20231",
+      "codigo": "20231005033",
+      "nombre": "ARIAS MELO JUAN DAVID"
+    },
+    {
+      "semestre": "20231",
+      "codigo": "20231005028",
+      "nombre": "PEREZ LARA CRISTIHAN DAVID"
+    },
+    {
+      "semestre": "20231",
+      "codigo": "20231005174",
+      "nombre": "SARTA FIERRO JUAN PABLO"
+    },
+    {
+      "semestre": "20232",
+      "codigo": "20232005020",
+      "nombre": "ROMERO GARAY LINA NATALY"
+    },
+    {
+      "semestre": "20232",
+      "codigo": "20232005093",
+      "nombre": "HENAO ZABALA PAULA ANDREA"
+    },
+    {
+      "semestre": "20232",
+      "codigo": "20232005068",
+      "nombre": "QUIROGA URIBE NESTOR ALFONSO"
+    },
+    {
+      "semestre": "20232",
+      "codigo": "20232005091",
+      "nombre": "APARICIO VARGAS GUSTAVO ADOLFO"
+    },
+    {
+      "semestre": "20232",
+      "codigo": "20232005051",
+      "nombre": "AVILA ROJAS LEONARDO ABSALON"
+    },
+    {
+      "semestre": "20232",
+      "codigo": "20232005017",
+      "nombre": "RODRIGUEZ RUIZ JUAN DAVID"
+    },
+    {
+      "semestre": "20232",
+      "codigo": "20232005109",
+      "nombre": "DURAN SIMIJACA ERICK SANTIAGO"
+    },
+    {
+      "semestre": "20232",
+      "codigo": "20232005027",
+      "nombre": "VARGAS MUÑOZ JUAN ESTEBAN"
+    },
+    {
+      "semestre": "20232",
+      "codigo": "20232005180",
+      "nombre": "BONILLA ALBARRACIN JUAN FELIPE"
+    },
+    {
+      "semestre": "20232",
+      "codigo": "20232005106",
+      "nombre": "PEREZ CENDALES DIEGO ANDRES"
+    },
+    {
+      "semestre": "20241",
+      "codigo": "20241005008",
+      "nombre": "MORENO JUEZ SAMUEL ANDRES"
+    },
+    {
+      "semestre": "20241",
+      "codigo": "20241005074",
+      "nombre": "MAYORGA JIMENEZ SIMON NICOLAS"
+    },
+    {
+      "semestre": "20241",
+      "codigo": "20241005045",
+      "nombre": "CHARRY OROZCO LEONARDO"
+    },
+    {
+      "semestre": "20241",
+      "codigo": "20241005018",
+      "nombre": "SANMARTIN GOMEZ SAMUEL JOSE"
+    },
+    {
+      "semestre": "20241",
+      "codigo": "20241005025",
+      "nombre": "PINZON HERNANDEZ JHOSEPH ALEJANDRO"
+    },
+    {
+      "semestre": "20241",
+      "codigo": "20241005127",
+      "nombre": "AVENDAÑO GARAVITO CHRISTIAAN ANDRES"
+    },
+    {
+      "semestre": "20241",
+      "codigo": "20241005063",
+      "nombre": "GOMEZ VERA SERGIO"
+    },
+    {
+      "semestre": "20241",
+      "codigo": "20241005043",
+      "nombre": "MONTAÑO JUNCA NESTOR IVAN"
+    },
+    {
+      "semestre": "20241",
+      "codigo": "20241005136",
+      "nombre": "RUIZ VEGA RAFAEL ANDRES"
+    },
+    {
+      "semestre": "20241",
+      "codigo": "20241005102",
+      "nombre": "CALDERON PADILLA SANTIAGO ANDRES"
+    },
+    {
+      "semestre": "20242",
+      "codigo": "20242005006",
+      "nombre": "AGGARWAL CASTRO RAVI PRASAD"
+    },
+    {
+      "semestre": "20242",
+      "codigo": "20242005114",
+      "nombre": "PARDO MALDONADO DANIEL ARTURO"
+    },
+    {
+      "semestre": "20242",
+      "codigo": "20242005127",
+      "nombre": "GUTIERREZ LADEUT JOCIMAR DAVID"
+    },
+    {
+      "semestre": "20242",
+      "codigo": "20242005142",
+      "nombre": "BRITO DELGADO MICHELL DAYAN"
+    },
+    {
+      "semestre": "20242",
+      "codigo": "20242005018",
+      "nombre": "ALVARADO PACHON NICOLAS CAMILO"
+    },
+    {
+      "semestre": "20242",
+      "codigo": "20242005134",
+      "nombre": "ALVAREZ ROJAS JUAN CAMILO"
+    },
+    {
+      "semestre": "20242",
+      "codigo": "20242005056",
+      "nombre": "ZAMUDIO QUINTERO WALTER OSWALDO"
+    },
+    {
+      "semestre": "20242",
+      "codigo": "20242005061",
+      "nombre": "PARDO ESCOBAR JUAN DIEGO"
+    },
+    {
+      "semestre": "20242",
+      "codigo": "20242005034",
+      "nombre": "GOMEZ PORTELA JAVIER FELIPE"
+    },
+    {
+      "semestre": "20242",
+      "codigo": "20242005076",
+      "nombre": "HOLGUIN RINCON JULIAN ESTEBAN"
+    },
+    {
+      "semestre": "20251",
+      "codigo": "20251005027",
+      "nombre": "MONGUA BOHORQUEZ SERGIO DUVAN"
+    },
+    {
+      "semestre": "20251",
+      "codigo": "20251005159",
+      "nombre": "PEÑARETE PINTOR JOHAN SANTIAGO"
+    },
+    {
+      "semestre": "20251",
+      "codigo": "20251005075",
+      "nombre": "BELTRAN GARZON JOHAN SEBASTIAN"
+    },
+    {
+      "semestre": "20251",
+      "codigo": "20251005036",
+      "nombre": "OSPINA RODRIGUEZ JUAN JACOBO"
+    },
+    {
+      "semestre": "20251",
+      "codigo": "20251005144",
+      "nombre": "GONZALEZ SARMIENTO EDISON DANIEL"
+    },
+    {
+      "semestre": "20251",
+      "codigo": "20251005044",
+      "nombre": "PUERTA MORENO JHON FREDY"
+    },
+    {
+      "semestre": "20251",
+      "codigo": "20251005123",
+      "nombre": "HERNANDEZ JIMENEZ MATEO"
+    },
+    {
+      "semestre": "20251",
+      "codigo": "20251005045",
+      "nombre": "MARTINEZ DEVIA JULY KATHERINE"
+    },
+    {
+      "semestre": "20251",
+      "codigo": "20251005076",
+      "nombre": "ACEVEDO FIERRO DUVAN ALEXIS"
+    },
+    {
+      "semestre": "20251",
+      "codigo": "20251005080",
+      "nombre": "PINEDA ESTUPIÑAN DERLY KATERINE"
+    },
+    {
+      "semestre": "20252",
+      "codigo": "20252005024",
+      "nombre": "GOMEZ LOAIZA LUCIANA"
+    },
+    {
+      "semestre": "20252",
+      "codigo": "20252005020",
+      "nombre": "ORDOÑEZ SALINAS JUAN FELIPE"
+    },
+    {
+      "semestre": "20252",
+      "codigo": "20252005040",
+      "nombre": "FLOREZ BELTRÁN DILLAN SANTIAGO"
+    },
+    {
+      "semestre": "20252",
+      "codigo": "20252005049",
+      "nombre": "MENDEZ BOTACHE INGRID VANESSA"
+    },
+    {
+      "semestre": "20252",
+      "codigo": "20252005137",
+      "nombre": "ONTIBON HORTUA JUAN SEBASTIAN"
+    },
+    {
+      "semestre": "20252",
+      "codigo": "20252005008",
+      "nombre": "VANEGAS PARRADO MAHIA ALEJANDRA"
+    },
+    {
+      "semestre": "20252",
+      "codigo": "20252005055",
+      "nombre": "LASSO NATES LUNA ISABEL"
+    },
+    {
+      "semestre": "20252",
+      "codigo": "20252005149",
+      "nombre": "PALACIO RODRIGUEZ MIGUEL ANGEL"
+    },
+    {
+      "semestre": "20252",
+      "codigo": "20252005146",
+      "nombre": "CAÑON PEDRAZA JERONIMO"
+    },
+    {
+      "semestre": "20252",
+      "codigo": "20252005041",
+      "nombre": "AGUDELO PINEDA LAURA VALENTINA"
+    }
+  ],
+  "matriculas": [
+    {
+      "semestre": "20231",
+      "codigo": "20231005046",
+      "nombre": "CARPETA CASTIBLANCO ALEJANDRO"
+    },
+    {
+      "semestre": "20241",
+      "codigo": "20241005074",
+      "nombre": "MAYORGA JIMENEZ SIMON NICOLAS"
+    },
+    {
+      "semestre": "20242",
+      "codigo": "20242005006",
+      "nombre": "AGGARWAL CASTRO RAVI PRASAD"
+    },
+    {
+      "semestre": "20251",
+      "codigo": "20251005027",
+      "nombre": "MONGUA BOHORQUEZ SERGIO DUVAN"
+    },
+    {
+      "semestre": "20252",
+      "codigo": "20252005020",
+      "nombre": "ORDOÑEZ SALINAS JUAN FELIPE"
+    }
+  ]
+}
+
+
