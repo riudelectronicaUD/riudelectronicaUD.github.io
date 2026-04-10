@@ -1,6 +1,6 @@
 # Reconocimientos Académicos
 
-Aplicación web desarrollada para visualizar los mejores promedios académicos y los estudiantes que obtuvieron matrícula de honor, organizada por periodos académicos.
+Aplicación web desarrollada para visualizar los mejores promedios académicos y los estudiantes que obtuvieron matrícula de honor, organizada por periodos académicos. Basado en la página realizada en sharepoint que muestra la misma información
 
 ---
 
@@ -22,6 +22,7 @@ Esta página permite consultar de forma clara y organizada:
 ## Tecnologías utilizadas
 
 - HTML5
+- Bootstrap 5.1.3
 - CSS3 (Grid y Flexbox)
 - JavaScript (Vanilla JS)
 - JSON como fuente de datos
@@ -29,6 +30,7 @@ Esta página permite consultar de forma clara y organizada:
 ---
 
 ## Estructura de datos
+La base de datos que contiene a los mejores estudiantes se realizó en un archivo JSON 
 
 El archivo `data.json` contiene dos conjuntos principales:
 
