@@ -12,7 +12,6 @@ Esta página permite consultar de forma clara y organizada:
 - Estudiantes con matrícula de honor
 - Información segmentada por periodos académicos
 
-El diseño está inspirado en interfaces institucionales universitarias, priorizando claridad, accesibilidad y organización de la información.
 
 ---
 
