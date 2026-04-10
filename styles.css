@@ -14,7 +14,8 @@ body {
 .container {
     width: 90%;
     margin: auto;
-    padding: 20px;
+    padding: 1rem;
+
 }
 
 .navbar-title {
@@ -33,7 +34,7 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-
+    font-weight: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -141,7 +142,7 @@ img {
 }
 
 /* Matriculas */
-.Matriculas{
+.Matriculas {
     background: #8C1919;
     padding: 2rem;
     border-radius: 1rem;
@@ -149,21 +150,24 @@ img {
 }
 
 .container_Matriculas {
-    height: 20rem;    
+    height: 20rem;
     display: flex;
     gap: 1rem;
     color: white;
 }
-.img-container{
+
+.img-container {
     height: 100%;
     object-fit: cover;
 }
+
 .img-container img {
     width: 100%;
     height: 100%;
     margin-left: 5rem;
 }
-.accordion_matriculas{
+
+.accordion_matriculas {
     color: #8C1919;
     font-weight: 500;
 }
@@ -172,6 +176,7 @@ img {
 .tabla-container {
     width: 100%;
 }
+
 /* TABLA */
 .tabla-honor {
     background: #eaeaea;
