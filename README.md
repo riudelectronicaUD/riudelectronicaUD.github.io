@@ -14,10 +14,6 @@ Esta página permite consultar de forma clara y organizada:
 - La página se adapta a cualquier dispositivo sin perder su forma.
 ---
 
-## Estructura del Proyecto
-
----
-
 ## Tecnologías utilizadas
 
 - HTML5
