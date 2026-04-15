@@ -11,8 +11,7 @@ Esta página permite consultar de forma clara y organizada:
 - Top 10 estudiantes por semestre
 - Estudiantes con matrícula de honor
 - Información segmentada por periodos académicos
-
-  adicionalmente, la página se adapta a cualquier dispositivo sin perder su forma.
+- La página se adapta a cualquier dispositivo sin perder su forma.
 ---
 
 ## Estructura del Proyecto
