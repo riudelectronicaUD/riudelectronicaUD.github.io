@@ -1,42 +1,42 @@
 fetch('data.json')
-.then(res => res.json())
-.then(data => {
+    .then(res => res.json())
+    .then(data => {
 
-    /* =========================
-       📊 PROMEDIOS (ACORDEÓN)
-    ==========================*/
-    const estudiantes = data.estudiantes;
+        /* =========================
+           📊 PROMEDIOS (ACORDEÓN)
+        ==========================*/
+        const estudiantes = data.estudiantes;
 
-    // Agrupar por semestre
-    const porSemestre = {};
-    estudiantes.forEach(e => {
-        if (!porSemestre[e.semestre]) {
-            porSemestre[e.semestre] = [];
-        }
-        porSemestre[e.semestre].push(e);
-    });
+        // Agrupar por semestre
+        const porSemestre = {};
+        estudiantes.forEach(e => {
+            if (!porSemestre[e.semestre]) {
+                porSemestre[e.semestre] = [];
+            }
+            porSemestre[e.semestre].push(e);
+        });
 
-    // Bloques de periodos
-    const bloques = {
-        bloque1: ["20201", "20202", "20211"],
-        bloque2: ["20212", "20221", "20222"],
-        bloque3: ["20231", "20232", "20241"],
-        bloque4: ["20242", "20251", "20252"]
-    };
+        // Bloques de periodos
+        const bloques = {
+            bloque1: ["20201", "20202", "20211"],
+            bloque2: ["20212", "20221", "20222"],
+            bloque3: ["20231", "20232", "20241"],
+            bloque4: ["20242", "20251", "20252"]
+        };
 
-    // Renderizar promedios
-    Object.keys(bloques).forEach(bloqueId => {
+        // Renderizar promedios
+        Object.keys(bloques).forEach(bloqueId => {
 
-        const container = document.getElementById(bloqueId);
+            const container = document.getElementById(bloqueId);
 
-        if (!container) return;
+            if (!container) return;
 
-        bloques[bloqueId].forEach(semestre => {
+            bloques[bloqueId].forEach(semestre => {
 
-            const col = document.createElement("div");
-            col.classList.add("col");
+                const col = document.createElement("div");
+                col.classList.add("col");
 
-            col.innerHTML = `
+                col.innerHTML = `
                 <div class="col-header">
                     <span>${formatearSemestre(semestre)}</span>
                 </div>
@@ -46,18 +46,18 @@ fetch('data.json')
                 </div>
             `;
 
-            container.appendChild(col);
+                container.appendChild(col);
+            });
         });
-    });
 
-    /* =========================
-       🏅 MATRÍCULAS DE HONOR (TABLA)
-    ==========================*/
-    const tabla = document.getElementById("tabla-matriculas");
+        /* =========================
+           🏅 MATRÍCULAS DE HONOR (TABLA)
+        ==========================*/
+        const tabla = document.getElementById("tabla-matriculas");
 
-    if (tabla) {
-        data.matriculas.forEach(est => {
-            tabla.innerHTML += `
+        if (tabla) {
+            data.matriculas.forEach(est => {
+                tabla.innerHTML += `
                 <tr>
                     <td><span class="check"></span></td>
                     <td>${est.nombre}</td>
@@ -65,10 +65,10 @@ fetch('data.json')
                     <td>${est.semestre}</td>
                 </tr>
             `;
-        });
-    }
+            });
+        }
 
-});
+    });
 
 /* =========================
    🧩 FUNCIONES
@@ -114,3 +114,12 @@ document.querySelectorAll(".accordion").forEach(btn => {
             panel.style.display === "block" ? "none" : "block";
     });
 });
+
+const firstAccordion = document.querySelector(".accordion");
+if (firstAccordion) {
+    firstAccordion.classList.add("active");
+    const firstPanel = firstAccordion.nextElementSibling;
+    if (firstPanel) {
+        firstPanel.style.display = "block";
+    }
+}
