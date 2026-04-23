@@ -14,22 +14,21 @@ body {
 .navbar-logo {
     max-height: 56px;
 }
-
 .navbar-title {
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    font-size: 1rem;
-    color: #111827;
+    font-family: fangsong;
 }
+
 
 .hero {
     position: relative;
     min-height: 72vh;
-    background: linear-gradient(135deg, #0f172a 0%, #8C1919  35%,  #BE1622 80%);
+    background: linear-gradient(120deg, #560101, #8C1919, #be1622, #ff2020);
+    background-size: 300% 300%;
     display: flex;
     align-items: center;
     text-align: center;
     overflow: hidden;
+    animation: heroGradient 10s ease infinite;
 }
 
 .hero::before {
@@ -38,6 +37,12 @@ body {
     inset: 0;
     background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.15), transparent 35%),
                 radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.10), transparent 25%);
+}
+
+@keyframes heroGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .hero-content {
@@ -203,7 +208,9 @@ body {
 }
 
 .logo-card img {
-    max-height: 72px;
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
     margin-bottom: 1rem;
 }
 
