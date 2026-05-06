@@ -18,8 +18,13 @@ body {
 
 }
 
+.navbar-logo {
+    max-height: 56px;
+    width: auto;
+}
 .navbar-title {
     font-family: fangsong;
+    font-size: 1rem;
 }
 
 /* ACCORDION */
