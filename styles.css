@@ -24,7 +24,7 @@ body {
 }
 .navbar-title {
     font-family: fangsong;
-    font-size: 1rem;
+    /* font-size: 1rem; */
 }
 
 /* ACCORDION */
@@ -146,17 +146,6 @@ img {
     height: 25rem;
     object-fit: cover;
     object-position: center;
-    /* Por defecto, centrado */
-    object-position: top;
-    /* Enfoque en la parte superior */
-    object-position: bottom;
-    /* Enfoque en la parte inferior */
-    object-position: left;
-    /* Enfoque a la izquierda */
-    object-position: right;
-    /* Enfoque a la derecha */
-    object-position: 30% 80%;
-    /* Coordenadas personalizadas (x% y%) */
 }
 
 /* Matriculas */
@@ -180,11 +169,24 @@ img {
         flex-direction: column;
         gap: 1.5rem;
     }
-}
 
-@media (max-width: 768px) {
     .container_Matriculas > div:first-child {
         width: 100% !important;
+    }
+
+    .img-container {
+        min-width: 100%;
+        height: 15rem;
+    }
+
+    .accordion_matriculas {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .container.text-center .btn {
+        margin-bottom: 0.75rem;
     }
 }
 
@@ -202,29 +204,12 @@ img {
     margin: 0;
 }
 
-/* Responsive Image Container */
-@media (max-width: 768px) {
-    .img-container {
-        min-width: 100%;
-        height: 15rem;
-    }
-}
-
 .accordion_matriculas {
     color: #8C1919;
     font-weight: 500;
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-}
-
-/* Responsive accordion matriculas */
-@media (max-width: 768px) {
-    .accordion_matriculas {
-        width: 100%;
-        font-size: 1rem;
-        padding: 0.8rem 1rem;
-    }
 }
 
 /* TABLAS */
