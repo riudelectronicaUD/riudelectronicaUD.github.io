@@ -1,6 +1,6 @@
-# 🎓 Ingeniería Electrónica - Mejores Estudiantes
+# 🎓 Ingeniería Electrónica - Sitio web para la comunidad académica
 
-Portal interactivo que reconoce y destaca a los mejores estudiantes del programa de Ingeniería Electrónica de la Universidad Distrital Francisco José de Caldas. Muestra promedios académicos y matrículas de honor por período.
+Portal interactivo con página principal que informa y visualiza los promedios académicos y matrículas de honor por período reconociendo, allí se destaca a los mejores estudiantes del programa. Adicionalmente, existen dos botones dentro de la página principal que redirijen a dos páginas que contienen información de práctica empresarial y trámites y procedimientos. Finalmente el dominio de la página contiene un endpoint llamado "página_deserción" que contiene una página web con información de deserción de estudiantes, es importante aclarar que no existe un botón desde alguna página que redirija a la página de deserción estudiantil.
 
 ---
 
@@ -65,7 +65,7 @@ riudelectronicaUD.github.io/
 │   └── 📷 [logos de empresas]       # IBM, Huawei, Nokia, etc.
 │
 ├── 📋 pagina_desercion/
-│   ├── index.html                   # Página de trámites (reutilizada)
+│   ├── index.html                   # Página de deserción
 │   └── style.css                    # Estilos compartidos
 │
 ├── 📝 Tramitesyprocedimientos/
@@ -195,17 +195,24 @@ El archivo contiene dos arrays principales:
 
 Muestra:
 - Beneficios de prácticas
-- Logos de empresas aliadas
 - Links a portales de empleo
-- Testimonios de estudiantes
+- Dashboard de Power BI
+- Logos de empresas aliadas
 
-### 5. **Trámites Académicos (`Tramitesyprocedimientos/`)**
+### 5. **Deserción (`pagina_desercion/`)**
 
 Contiene:
+- Estrategias de apoyo y retención
+- Dashboard de Power BI
+
+### 6. **Trámites Académicos (`Tramitesyprocedimientos/`)**
+
+Contiene:
+- Índice interactivo de trámites
 - Guía de procesos académicos
 - Enlaces directos a formularios
-- Índice interactivo de trámites
 - Información de requisitos
+  
 
 ---
 
@@ -213,7 +220,7 @@ Contiene:
 
 ### Cambiar Colores Corporativos
 
-En `styles.css`, busca `#8C1919` y reemplázalo con tu color:
+Se utilizó el color de la página principal del programa, si se desea modificar; En `styles.css`, busca `#8C1919` y reemplázalo con tu color:
 
 ```css
 /* Antes */
@@ -284,7 +291,10 @@ Luego agrega en `index.html`:
 - [Bootstrap 5.1.3](https://getbootstrap.com/)
 - [Unsplash Images](https://unsplash.com/)
 - [Google Fonts](https://fonts.google.com/)
-- [Font Awesome Icons](https://fontawesome.com/) (referencia)
+- [Font Awesome Icons](https://fontawesome.com/)
+- Claude Antropic (Estructura y estilos)
+- Google Gemini (Estructura y estilos)
+- Chat GPT (Estructura, estilos e Imágenes )
 
 ---
 
@@ -341,44 +351,21 @@ Navegador: Safari 15.0
 Dispositivo: iPhone 13
 ```
 
----
-
-## 📄 Licencia
-
-Este proyecto está bajo licencia **MIT**. Ver archivo `LICENSE` para más detalles.
-
----
-
 ## 👥 Autores
 
-**Ingeniería Electrónica - Universidad Distrital Francisco José de Caldas**
+**Monitor Nicolás Moreno de Ingeniería Electrónica - Universidad Distrital Francisco José de Caldas**
 
 Desarrollado como herramienta de reconocimiento académico.
 
 ---
 
-## 📞 Contacto
+##  Link del Sitio
 
-Para preguntas o sugerencias:
-- 📧 Email: [contacto@ing-electronica.edu.co](mailto:contacto@ing-electronica.edu.co)
 - 🌐 Web: [riudelectronicaUD.github.io](https://riudelectronicaUD.github.io)
 
 ---
 
-## 🗺 Roadmap Futuro
-
-- [ ] Integración con base de datos
-- [ ] Filtros avanzados de búsqueda
-- [ ] Exportar datos a PDF/Excel
-- [ ] Dashboard administrativo
-- [ ] Autenticación de usuarios
-- [ ] Multilingual (EN/ES)
-
----
-
 <div align="center">
-
-**⭐ Si te gustó este proyecto, no olvides darle una estrella en GitHub ⭐**
 
 *Última actualización: Mayo 2026*
 
