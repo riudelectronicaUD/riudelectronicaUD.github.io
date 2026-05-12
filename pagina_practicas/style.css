@@ -211,6 +211,36 @@ body {
     font-weight: 600;
 }
 
+/* BOTONES PERSONALIZADOS */
+.btn-outline-dark.mx-2 {
+    border: 2px solid #8C1919;
+    color: #8C1919;
+    background: transparent;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.btn-outline-dark.mx-2:hover {
+    background-color: #8C1919;
+    color: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(140, 25, 25, 0.2);
+    border-color: #8C1919;
+}
+
+.btn-outline-dark.mx-2:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(140, 25, 25, 0.2);
+}
+
 @media (max-width: 1100px) {
     .cards-grid,
     .info-grid {

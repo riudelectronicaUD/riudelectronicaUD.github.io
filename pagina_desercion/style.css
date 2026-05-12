@@ -256,6 +256,36 @@ body {
     font-weight: 600;
 }
 
+/* BOTONES PERSONALIZADOS */
+.btn-outline-dark.mx-2 {
+    border: 2px solid #8C1919;
+    color: #8C1919;
+    background: transparent;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.btn-outline-dark.mx-2:hover {
+    background-color: #8C1919;
+    color: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(140, 25, 25, 0.2);
+    border-color: #8C1919;
+}
+
+.btn-outline-dark.mx-2:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(140, 25, 25, 0.2);
+}
+
 @media (max-width: 1100px) {
     .cards-grid,
     .info-grid {
@@ -503,4 +533,79 @@ td {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+/* INDICE ESTILO */
+/* ACTUALIZACIÓN ÍNDICE DE TRÁMITES */
+.indice-card {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.05);
+    border: 1px solid #edf2f7;
+}
+
+.indice-card h3 {
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #8C1919;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.indice-buttons {
+    display: grid;
+    /* Crear una cuadrícula de 2 columnas en PC */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1.25rem;
+}
+
+.indice-button.btn-outline-dark {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem 1.5rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    color: #1f2937;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    text-transform: none; /* Quita el mayúsculas si estaba heredado */
+    letter-spacing: normal;
+    white-space: normal; /* Permite que el texto largo salte de línea */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover: Fondo rojo sutil y elevación */
+.indice-button.btn-outline-dark:hover {
+    background-color: #ffffff;
+    color: #8C1919;
+    border-color: #8C1919;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(140, 25, 25, 0.1);
+}
+
+/* Icono/Número resaltado dentro del botón */
+.indice-button::before {
+    margin-right: 10px;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .indice-buttons {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+    }
+    
+    .indice-card {
+        padding: 1.5rem;
+    }
+    
+    .indice-button.btn-outline-dark {
+        font-size: 0.9rem;
+        padding: 0.85rem 1.2rem;
+    }
 }
