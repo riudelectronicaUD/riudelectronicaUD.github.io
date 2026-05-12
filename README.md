@@ -220,7 +220,7 @@ Contiene:
 
 ### Cambiar Colores Corporativos
 
-En `styles.css`, busca `#8C1919` y reemplázalo con tu color:
+Se utilizó el color de la página principal del programa, si se desea modificar; En `styles.css`, busca `#8C1919` y reemplázalo con tu color:
 
 ```css
 /* Antes */
@@ -292,6 +292,9 @@ Luego agrega en `index.html`:
 - [Unsplash Images](https://unsplash.com/)
 - [Google Fonts](https://fonts.google.com/)
 - [Font Awesome Icons](https://fontawesome.com/) (referencia)
+- Claude Antropic
+- Google Gemini
+- Chat GPT
 
 ---
 
@@ -348,44 +351,21 @@ Navegador: Safari 15.0
 Dispositivo: iPhone 13
 ```
 
----
-
-## 📄 Licencia
-
-Este proyecto está bajo licencia **MIT**. Ver archivo `LICENSE` para más detalles.
-
----
-
 ## 👥 Autores
 
-**Ingeniería Electrónica - Universidad Distrital Francisco José de Caldas**
+**Monitor Nicolás Moreno de Ingeniería Electrónica - Universidad Distrital Francisco José de Caldas**
 
 Desarrollado como herramienta de reconocimiento académico.
 
 ---
 
-## 📞 Contacto
+##  Link del Sitio
 
-Para preguntas o sugerencias:
-- 📧 Email: [contacto@ing-electronica.edu.co](mailto:contacto@ing-electronica.edu.co)
 - 🌐 Web: [riudelectronicaUD.github.io](https://riudelectronicaUD.github.io)
 
 ---
 
-## 🗺 Roadmap Futuro
-
-- [ ] Integración con base de datos
-- [ ] Filtros avanzados de búsqueda
-- [ ] Exportar datos a PDF/Excel
-- [ ] Dashboard administrativo
-- [ ] Autenticación de usuarios
-- [ ] Multilingual (EN/ES)
-
----
-
 <div align="center">
-
-**⭐ Si te gustó este proyecto, no olvides darle una estrella en GitHub ⭐**
 
 *Última actualización: Mayo 2026*
 
