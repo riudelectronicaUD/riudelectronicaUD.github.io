@@ -1,6 +1,6 @@
 # 🎓 Ingeniería Electrónica - Sitio web para la comunidad académica
 
-Portal interactivo en el que la página principal muestra promedios académicos y matrículas de honor por período reconociendo y destacando a los mejores estudiantes del programa. Adicionalmente, existen dos botones dentro de la página principal que redirijen a dos páginas que contienen información de práctica empresarial y trámites y procedimientos. Finalmente se agregó un endpoint que no tiene botón de redirección que contiene información de deserción de estudiantes.
+Portal interactivo con página principal que informa y visualiza los promedios académicos y matrículas de honor por período reconociendo, allí se destaca a los mejores estudiantes del programa. Adicionalmente, existen dos botones dentro de la página principal que redirijen a dos páginas que contienen información de práctica empresarial y trámites y procedimientos. Finalmente el dominio de la página contiene un endpoint llamado "página_deserción" que contiene una página web con información de deserción de estudiantes, es importante aclarar que no existe un botón desde alguna página que redirija a la página de deserción estudiantil.
 
 ---
 
