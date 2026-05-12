@@ -60,7 +60,6 @@ fetch('data.json')
                 tabla.innerHTML += `
                 <tr>
                     <td><span class="check"></span></td>
-                    <td>${est.nombre}</td>
                     <td>${est.codigo}</td>
                     <td>${est.semestre}</td>
                 </tr>
@@ -80,14 +79,12 @@ function renderTablaPromedios(lista) {
         <table>
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Cód.</th>
+                    <th>Código</th>
                 </tr>
             </thead>
             <tbody>
                 ${lista.map(e => `
                     <tr>
-                        <td>${e.nombre}</td>
                         <td>${e.codigo}</td>
                     </tr>
                 `).join("")}
@@ -121,5 +118,15 @@ if (firstAccordion) {
     const firstPanel = firstAccordion.nextElementSibling;
     if (firstPanel) {
         firstPanel.style.display = "block";
+    }
+}
+
+// Desplegar por defecto el accordion de Matrículas de Honor
+const matriculasAccordion = document.querySelector(".accordion_matriculas");
+if (matriculasAccordion) {
+    matriculasAccordion.classList.add("active");
+    const matriculasPanel = matriculasAccordion.nextElementSibling;
+    if (matriculasPanel) {
+        matriculasPanel.style.display = "block";
     }
 }
