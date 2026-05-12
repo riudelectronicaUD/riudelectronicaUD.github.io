@@ -291,10 +291,10 @@ Luego agrega en `index.html`:
 - [Bootstrap 5.1.3](https://getbootstrap.com/)
 - [Unsplash Images](https://unsplash.com/)
 - [Google Fonts](https://fonts.google.com/)
-- [Font Awesome Icons](https://fontawesome.com/) (referencia)
-- Claude Antropic
-- Google Gemini
-- Chat GPT
+- [Font Awesome Icons](https://fontawesome.com/)
+- Claude Antropic (Estructura y estilos)
+- Google Gemini (Estructura y estilos)
+- Chat GPT (Estructura, estilos e Imágenes )
 
 ---
 
