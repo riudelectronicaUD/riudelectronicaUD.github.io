@@ -65,7 +65,7 @@ riudelectronicaUD.github.io/
 │   └── 📷 [logos de empresas]       # IBM, Huawei, Nokia, etc.
 │
 ├── 📋 pagina_desercion/
-│   ├── index.html                   # Página de trámites (reutilizada)
+│   ├── index.html                   # Página de deserción
 │   └── style.css                    # Estilos compartidos
 │
 ├── 📝 Tramitesyprocedimientos/
@@ -195,17 +195,24 @@ El archivo contiene dos arrays principales:
 
 Muestra:
 - Beneficios de prácticas
-- Logos de empresas aliadas
 - Links a portales de empleo
-- Testimonios de estudiantes
+- Dashboard de Power BI
+- Logos de empresas aliadas
 
-### 5. **Trámites Académicos (`Tramitesyprocedimientos/`)**
+### 5. **Deserción (`pagina_desercion/`)**
 
 Contiene:
+- Estrategias de apoyo y retención
+- Dashboard de Power BI
+
+### 6. **Trámites Académicos (`Tramitesyprocedimientos/`)**
+
+Contiene:
+- Índice interactivo de trámites
 - Guía de procesos académicos
 - Enlaces directos a formularios
-- Índice interactivo de trámites
 - Información de requisitos
+  
 
 ---
 
