@@ -21,7 +21,7 @@ const franjas = [
 // ================================================
 
 const API_URL =
-  'https://script.google.com/macros/s/AKfycbwycSj_FFl2Yr6CE2afeRf7y0tOTCN-hZwixyawBintvmE_ISDz3rIYg6o7XzrCd4YbDw/exec';
+  'https://script.google.com/macros/s/AKfycbzSEQ0BHIT-KP_eDHUJjV0FfBlD4gPq97h3TK3Ksadvi2nB6ZiTV_YZQamf2A1kU_vcnA/exec';
 
 
 const franjaSelect =
