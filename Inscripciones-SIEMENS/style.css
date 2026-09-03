@@ -1,241 +1,514 @@
-/* =========================
+/* ==========================================================
    CONFIGURACIÓN GENERAL
-========================= */
+========================================================== */
 
 * {
   box-sizing: border-box;
 }
 
+
 html,
 body {
   margin: 0;
   padding: 0;
+
   min-height: 100%;
 }
 
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
 
   min-height: 100vh;
 
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
   display: flex;
+
   justify-content: center;
+
   align-items: center;
 
   padding: 30px 15px;
 
-  /* IMAGEN DE FONDO */
+
+  /* ========================================================
+     IMAGEN DE FONDO
+  ======================================================== */
+
   background-image:
+
     linear-gradient(
-      rgba(0, 0, 0, 0.50),
-      rgba(0, 0, 0, 0.50)
+      rgba(0, 0, 0, 0.30),
+      rgba(0, 0, 0, 0.30)
     ),
+
     url("./fondo.jpeg");
 
+
   background-size: cover;
+
   background-position: center;
+
   background-repeat: no-repeat;
+
   background-attachment: fixed;
+
 }
 
 
-/* =========================
-   CONTENEDOR PRINCIPAL
-========================= */
+/* ==========================================================
+   CONTENEDOR DEL FORMULARIO
+========================================================== */
 
 .container {
+
   width: 100%;
-  max-width: 520px;
 
-  background-color: rgba(255, 255, 255, 0.95);
+  max-width: 540px;
 
-  padding: 35px;
 
-  border-radius: 18px;
+  /*
+    Fondo blanco transparente.
+
+    Si quieres todavía más transparencia,
+    puedes bajar 0.72 a 0.60.
+  */
+
+  background-color:
+    rgba(255, 255, 255, 0.72);
+
+
+  padding: 38px;
+
+
+  border-radius: 20px;
+
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.60);
+
 
   box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.35);
+    0 15px 45px
+    rgba(0, 0, 0, 0.32);
 
-  backdrop-filter: blur(6px);
+
+  /* Efecto vidrio */
+
+  backdrop-filter:
+    blur(5px);
+
+  -webkit-backdrop-filter:
+    blur(5px);
+
 }
 
 
-/* =========================
+/* ==========================================================
    TÍTULO
-========================= */
+========================================================== */
 
 h1 {
-  margin: 0 0 12px;
+
+  margin:
+    0
+    0
+    10px;
+
 
   text-align: center;
 
-  font-size: 30px;
 
-  color: #8b1d41;
+  font-size: 31px;
+
+
+  font-weight: 700;
+
+
+  color:
+    #8b1d41;
+
 }
 
 
-/* =========================
-   TEXTO DESCRIPTIVO
-========================= */
+/* ==========================================================
+   DESCRIPCIÓN
+========================================================== */
 
 .descripcion {
+
+  margin:
+    0
+    0
+    30px;
+
+
   text-align: center;
 
-  color: #666;
-
-  margin-top: 0;
-  margin-bottom: 28px;
 
   font-size: 15px;
+
+
+  line-height: 1.5;
+
+
+  color:
+    #444444;
+
 }
 
 
-/* =========================
+/* ==========================================================
    FORMULARIO
-========================= */
+========================================================== */
 
 form {
+
   display: flex;
+
   flex-direction: column;
+
 }
 
 
-/* =========================
+/* ==========================================================
    ETIQUETAS
-========================= */
+========================================================== */
 
 label {
+
   margin-bottom: 7px;
+
 
   font-size: 14px;
 
-  font-weight: 600;
 
-  color: #333;
+  font-weight: 700;
+
+
+  color:
+    #272727;
+
 }
 
 
-/* =========================
-   INPUT Y SELECT
-========================= */
+/* ==========================================================
+   INPUTS Y SELECT
+========================================================== */
 
 input,
 select {
+
   width: 100%;
 
-  padding: 13px 14px;
 
-  margin-bottom: 19px;
+  padding:
+    13px
+    14px;
 
-  border: 1px solid #cccccc;
 
-  border-radius: 9px;
+  margin-bottom:
+    19px;
 
-  background-color: #ffffff;
 
-  font-size: 15px;
+  border:
+    1px solid
+    rgba(120, 120, 120, 0.55);
 
-  color: #333;
 
-  transition: all 0.25s ease;
+  border-radius:
+    9px;
+
+
+  background-color:
+    rgba(255, 255, 255, 0.88);
+
+
+  color:
+    #333333;
+
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+
+  font-size:
+    15px;
+
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+
 }
 
 
-/* EFECTO CUANDO SE SELECCIONA UN CAMPO */
+/* ==========================================================
+   CAMPO SELECCIONADO
+========================================================== */
 
 input:focus,
 select:focus {
-  outline: none;
 
-  border-color: #8b1d41;
+  outline:
+    none;
+
+
+  border-color:
+    #8b1d41;
+
+
+  background-color:
+    rgba(255, 255, 255, 0.97);
+
 
   box-shadow:
-    0 0 0 3px rgba(139, 29, 65, 0.15);
+    0
+    0
+    0
+    3px
+    rgba(139, 29, 65, 0.17);
+
 }
 
 
-/* PLACEHOLDER */
+/* ==========================================================
+   PLACEHOLDERS
+========================================================== */
 
 input::placeholder {
-  color: #aaaaaa;
+
+  color:
+    #888888;
+
 }
 
 
-/* =========================
+/* ==========================================================
+   SELECT
+========================================================== */
+
+select {
+
+  cursor:
+    pointer;
+
+}
+
+
+/* ==========================================================
+   FRANJAS AGOTADAS
+========================================================== */
+
+select option:disabled {
+
+  color:
+    #888888;
+
+
+  background-color:
+    #eeeeee;
+
+}
+
+
+/* ==========================================================
    BOTÓN
-========================= */
+========================================================== */
 
 button {
+
   width: 100%;
 
-  padding: 14px;
 
-  margin-top: 5px;
+  margin-top:
+    6px;
 
-  border: none;
 
-  border-radius: 9px;
+  padding:
+    15px;
 
-  background-color: #8b1d41;
 
-  color: white;
+  border:
+    none;
 
-  font-size: 16px;
 
-  font-weight: bold;
+  border-radius:
+    9px;
 
-  cursor: pointer;
 
-  transition: all 0.25s ease;
+  background-color:
+    #8b1d41;
+
+
+  color:
+    #ffffff;
+
+
+  font-size:
+    16px;
+
+
+  font-weight:
+    700;
+
+
+  cursor:
+    pointer;
+
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
 }
 
 
-/* EFECTO DEL BOTÓN */
+/* ==========================================================
+   BOTÓN HOVER
+========================================================== */
 
-button:hover {
-  background-color: #691531;
+button:hover:not(:disabled) {
 
-  transform: translateY(-2px);
+  background-color:
+    #691531;
+
+
+  transform:
+    translateY(-2px);
+
 
   box-shadow:
-    0 5px 15px rgba(0, 0, 0, 0.2);
+    0
+    7px
+    18px
+    rgba(0, 0, 0, 0.24);
+
 }
 
 
-/* BOTÓN DESHABILITADO */
+/* ==========================================================
+   BOTÓN MIENTRAS REGISTRA
+========================================================== */
 
 button:disabled {
-  background-color: #aaaaaa;
 
-  cursor: not-allowed;
+  background-color:
+    #999999;
 
-  transform: none;
 
-  box-shadow: none;
+  cursor:
+    not-allowed;
+
+
+  transform:
+    none;
+
+
+  box-shadow:
+    none;
+
 }
 
 
-/* =========================
+/* ==========================================================
    CELULARES
-========================= */
+========================================================== */
 
-@media (max-width: 600px) {
+@media
+(max-width: 600px) {
 
   body {
-    padding: 20px 15px;
 
-    align-items: flex-start;
+    align-items:
+      flex-start;
+
+
+    padding:
+      20px
+      15px;
+
   }
+
 
   .container {
-    margin-top: 25px;
 
-    padding: 25px 20px;
+    margin-top:
+      15px;
+
+
+    padding:
+      28px
+      21px;
+
+
+    border-radius:
+      16px;
+
   }
 
+
   h1 {
-    font-size: 25px;
+
+    font-size:
+      26px;
+
+  }
+
+
+  .descripcion {
+
+    font-size:
+      14px;
+
+  }
+
+
+  input,
+  select {
+
+    font-size:
+      16px;
+
+    /*
+      16px evita que algunos
+      celulares hagan zoom automático.
+    */
+
+  }
+
+}
+
+
+/* ==========================================================
+   PANTALLAS MUY PEQUEÑAS
+========================================================== */
+
+@media
+(max-width: 380px) {
+
+  .container {
+
+    padding:
+      23px
+      17px;
+
+  }
+
+
+  h1 {
+
+    font-size:
+      23px;
+
   }
 
 }
