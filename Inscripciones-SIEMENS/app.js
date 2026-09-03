@@ -18,17 +18,34 @@ franjas.forEach(franja => {
 registroForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
+  const codigo = document.getElementById('codigo').value;
   const nombre = document.getElementById('nombre').value;
   const email = document.getElementById('email').value;
   const franja = franjaSelect.value;
 
+  // Validar el formato del correo electrónico
+  if (!email.endsWith('@udistrital.edu.co')) {
+    alert('Por favor, ingresa un correo electrónico válido con el dominio @udistrital.edu.co');
+    return;
+  }
+
   const response = await fetch('respuestas.json');
   const respuestas = await response.json();
+
+  // Verificar si el usuario ya ha respondido
+  const usuarioRegistrado = respuestas.some(registro =>
+    registro.codigo === codigo || registro.email === email
+  );
+
+  if (usuarioRegistrado) {
+    alert('Ya has respondido anteriormente. No puedes responder de nuevo.');
+    return;
+  }
 
   if (respuestas[franja] && respuestas[franja].length >= 25) {
     alert('Lo siento, esta franja horaria ya está llena.');
   } else {
-    const nuevoRegistro = { nombre, email };
+    const nuevoRegistro = { codigo, nombre, email };
     respuestas[franja] ? respuestas[franja].push(nuevoRegistro) : respuestas[franja] = [nuevoRegistro];
     alert('¡Registro exitoso!');
     registroForm.reset();
