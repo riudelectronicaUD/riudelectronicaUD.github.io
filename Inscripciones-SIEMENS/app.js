@@ -24,7 +24,7 @@ const franjas = [
 // ==========================================================
 
 const API_URL =
-  'PEGA_AQUI_TU_URL_REAL_QUE_TERMINA_EN_EXEC';
+  'https://script.google.com/macros/s/AKfycbyQRVhvKUmrT7j6iIcVIJ0ax8TehXe6bUNrcVf2ze5BAtElJRcoYbcAqja_opkJFXFUig/exec';
 
 
 // ==========================================================
