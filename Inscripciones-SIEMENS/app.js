@@ -20,8 +20,7 @@ const franjas = [
 
 
 // ==========================================================
-// URL DE GOOGLE APPS SCRIPT
-// DEJA AQUÍ TU URL REAL QUE TERMINA EN /exec
+// URL DEL APPS SCRIPT
 // ==========================================================
 
 const API_URL =
@@ -29,7 +28,7 @@ const API_URL =
 
 
 // ==========================================================
-// ELEMENTOS DEL HTML
+// ELEMENTOS
 // ==========================================================
 
 const franjaSelect =
@@ -40,10 +39,10 @@ const registroForm =
 
 
 // ==========================================================
-// CREAR EL MENÚ INMEDIATAMENTE
+// CREAR FRANJAS COMO FUNCIONABAN ANTES
 // ==========================================================
 
-function crearMenuFranjas() {
+function crearFranjas() {
 
   franjaSelect.innerHTML = `
     <option value="" disabled selected>
@@ -56,11 +55,11 @@ function crearMenuFranjas() {
     const option =
       document.createElement('option');
 
+    // IMPORTANTE:
+    // El value SIEMPRE conserva solamente la franja.
     option.value = franja;
 
     option.textContent = franja;
-
-    option.disabled = false;
 
     franjaSelect.appendChild(option);
 
@@ -69,57 +68,37 @@ function crearMenuFranjas() {
 }
 
 
-// Crear inmediatamente
-crearMenuFranjas();
+// Crear el menú inmediatamente
+crearFranjas();
 
 
 // ==========================================================
-// CONSULTAR CUPOS EN SEGUNDO PLANO
+// CONSULTAR SOLO SI UNA FRANJA ESTÁ LLENA
 // ==========================================================
 
-async function actualizarDisponibilidad() {
+async function revisarCupos() {
 
   try {
 
-    /*
-      Agregamos un parámetro para evitar
-      que el navegador use información vieja.
-    */
-
-    const response = await fetch(
-      API_URL + '?consulta=disponibilidad&t=' + Date.now()
-    );
-
-
-    if (!response.ok) {
-
-      throw new Error(
-        'Respuesta HTTP: ' + response.status
+    const response =
+      await fetch(
+        API_URL + '?t=' + Date.now()
       );
-
-    }
 
 
     const resultado =
       await response.json();
 
 
-    /*
-      IMPORTANTE:
-
-      Si Google no devuelve disponibilidad,
-      NO destruimos el menú.
-
-      Simplemente dejamos las franjas normales.
-    */
-
+    // Si falla esta consulta,
+    // NO afecta el funcionamiento del formulario.
     if (
       !resultado.ok ||
       !Array.isArray(resultado.disponibilidad)
     ) {
 
-      console.warn(
-        'No se recibió información de disponibilidad.'
+      console.log(
+        'No se pudo consultar la disponibilidad.'
       );
 
       return;
@@ -129,51 +108,47 @@ async function actualizarDisponibilidad() {
 
     resultado.disponibilidad.forEach(item => {
 
-      /*
-        Buscar la opción correspondiente
-        por su value.
-      */
-
-      const option =
-        Array.from(franjaSelect.options)
+      const opcion =
+        Array
+          .from(franjaSelect.options)
           .find(
-            opcion =>
-              opcion.value === item.franja
+            option =>
+              option.value === item.franja
           );
 
 
-      if (!option) {
+      if (!opcion) {
         return;
       }
 
 
       // ==============================================
-      // FRANJA LLENA
+      // SI NO HAY CUPOS
       // ==============================================
 
-      if (item.cuposRestantes <= 0) {
+      if (Number(item.cuposRestantes) <= 0) {
 
-        option.disabled = true;
+        opcion.disabled = true;
 
-        option.textContent =
+        opcion.textContent =
           item.franja +
           ' — SIN CUPOS';
 
       }
 
       // ==============================================
-      // FRANJA DISPONIBLE
+      // SI TODAVÍA HAY CUPOS
       // ==============================================
 
       else {
 
-        option.disabled = false;
+        opcion.disabled = false;
 
-        option.textContent =
-          item.franja +
-          ' — ' +
-          item.cuposRestantes +
-          ' cupos disponibles';
+        // Solamente mostramos la hora.
+        // Si quieres mostrar los cupos también
+        // te digo cómo hacerlo.
+        opcion.textContent =
+          item.franja;
 
       }
 
@@ -183,12 +158,13 @@ async function actualizarDisponibilidad() {
   } catch (error) {
 
     /*
-      Si falla Google Apps Script,
-      el menú NO deja de funcionar.
+      MUY IMPORTANTE:
+      si esta consulta falla,
+      no bloqueamos el formulario.
     */
 
-    console.warn(
-      'No fue posible actualizar los cupos:',
+    console.log(
+      'No fue posible consultar cupos:',
       error
     );
 
@@ -197,13 +173,13 @@ async function actualizarDisponibilidad() {
 }
 
 
-// Consultamos disponibilidad,
-// pero sin bloquear el menú.
-actualizarDisponibilidad();
+// Consultar cuando abre la página
+revisarCupos();
 
 
 // ==========================================================
-// ENVIAR FORMULARIO
+// REGISTRO
+// ESTA ES LA LÓGICA NORMAL QUE YA FUNCIONABA
 // ==========================================================
 
 registroForm.addEventListener(
@@ -214,7 +190,7 @@ registroForm.addEventListener(
 
 
     // ======================================================
-    // OBTENER DATOS
+    // DATOS
     // ======================================================
 
     const tipoDocumento =
@@ -254,6 +230,21 @@ registroForm.addEventListener(
 
     const franja =
       franjaSelect.value;
+
+
+    // ======================================================
+    // VALIDAR TIPO DE DOCUMENTO
+    // ======================================================
+
+    if (!tipoDocumento) {
+
+      alert(
+        'Selecciona el tipo de documento.'
+      );
+
+      return;
+
+    }
 
 
     // ======================================================
@@ -312,7 +303,7 @@ registroForm.addEventListener(
     if (!franja) {
 
       alert(
-        'Debes seleccionar una franja horaria.'
+        'Selecciona una franja horaria.'
       );
 
       return;
@@ -337,7 +328,7 @@ registroForm.addEventListener(
 
 
     // ======================================================
-    // DATOS A ENVIAR
+    // DATOS QUE SE ENVÍAN
     // ======================================================
 
     const datos = {
@@ -357,6 +348,8 @@ registroForm.addEventListener(
       email:
         email,
 
+      // IMPORTANTE:
+      // Aquí enviamos solamente la hora original.
       franja:
         franja
 
@@ -366,7 +359,7 @@ registroForm.addEventListener(
     try {
 
       // ====================================================
-      // ENVIAR A GOOGLE APPS SCRIPT
+      // ENVIAR REGISTRO
       // ====================================================
 
       const response =
@@ -377,8 +370,10 @@ registroForm.addEventListener(
             method: 'POST',
 
             headers: {
+
               'Content-Type':
                 'text/plain;charset=utf-8'
+
             },
 
             body:
@@ -388,16 +383,18 @@ registroForm.addEventListener(
         );
 
 
+      // Primero leer como texto
       const texto =
         await response.text();
 
 
       console.log(
-        'Respuesta del servidor:',
+        'Respuesta de Google:',
         texto
       );
 
 
+      // Convertir respuesta a JSON
       const resultado =
         JSON.parse(texto);
 
@@ -426,30 +423,44 @@ registroForm.addEventListener(
         alert(mensaje);
 
 
+        // Guardamos cuál fue la franja utilizada
+        const franjaRegistrada =
+          franja;
+
+
+        // Limpiar formulario
+        registroForm.reset();
+
+
         // ==================================================
-        // SI ACABA DE OCUPAR EL ÚLTIMO CUPO
+        // SI ESE ERA EL ÚLTIMO CUPO
         // ==================================================
 
         if (
-          resultado.cuposRestantes !== undefined &&
-          resultado.cuposRestantes <= 0
+          Number(
+            resultado.cuposRestantes
+          ) <= 0
         ) {
 
-          const option =
-            Array.from(
-              franjaSelect.options
-            ).find(
-              opcion =>
-                opcion.value === franja
-            );
+          const opcion =
+            Array
+              .from(
+                franjaSelect.options
+              )
+              .find(
+                option =>
+                  option.value ===
+                  franjaRegistrada
+              );
 
 
-          if (option) {
+          if (opcion) {
 
-            option.disabled = true;
+            opcion.disabled =
+              true;
 
-            option.textContent =
-              franja +
+            opcion.textContent =
+              franjaRegistrada +
               ' — SIN CUPOS';
 
           }
@@ -457,22 +468,13 @@ registroForm.addEventListener(
         }
 
 
-        // Limpiar formulario
-
-        registroForm.reset();
-
-
-        /*
-          Consultar nuevamente los cupos
-          para actualizar todas las franjas.
-        */
-
-        actualizarDisponibilidad();
+        // Consultar nuevamente por si cambió otra franja
+        revisarCupos();
 
       }
 
       // ====================================================
-      // REGISTRO NO PERMITIDO
+      // EL SERVIDOR RECHAZÓ EL REGISTRO
       // ====================================================
 
       else {
@@ -483,12 +485,12 @@ registroForm.addEventListener(
 
 
         /*
-          Puede ocurrir que otra persona haya
-          tomado el último cupo mientras este
-          estudiante llenaba el formulario.
+          Si alguien tomó el último cupo
+          mientras se diligenciaba el formulario,
+          actualizamos el menú.
         */
 
-        actualizarDisponibilidad();
+        revisarCupos();
 
       }
 
@@ -496,21 +498,21 @@ registroForm.addEventListener(
     } catch (error) {
 
       console.error(
-        'Error:',
+        'ERROR DE REGISTRO:',
         error
       );
 
 
       alert(
-        'No fue posible realizar el registro.\n\n' +
-        'Por favor, intenta nuevamente.'
+        'No fue posible realizar el registro. ' +
+        'Por favor intenta nuevamente.'
       );
 
     }
 
 
     // ======================================================
-    // ACTIVAR BOTÓN
+    // REACTIVAR BOTÓN
     // ======================================================
 
     finally {
