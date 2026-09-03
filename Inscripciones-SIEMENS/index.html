@@ -1,33 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Registro de Actividad</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="./style.css?v=2">
 </head>
+
 <body>
+
   <div class="container">
+
     <h1>Registro de Actividad</h1>
+
+    <p class="descripcion">
+      Selecciona la franja horaria en la que deseas participar.
+    </p>
+
     <form id="registro-form">
-      <label for="codigo">Código de Estudiante:</label>
-      <input type="text" id="codigo" name="codigo" required>
 
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
+      <label for="codigo">Código de estudiante</label>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <input
+        type="text"
+        id="codigo"
+        name="codigo"
+        placeholder="Ej. 20211015082"
+        required
+      >
 
-      <label for="franja">Franja Horaria:</label>
+
+      <label for="nombre">Nombre completo</label>
+
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        placeholder="Escribe tu nombre completo"
+        required
+      >
+
+
+      <label for="email">Correo institucional</label>
+
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="usuario@udistrital.edu.co"
+        required
+      >
+
+
+      <label for="franja">Franja horaria</label>
+
       <select id="franja" name="franja" required>
-        <option value="" disabled selected>Selecciona una franja</option>
+
+        <option value="" disabled selected>
+          Selecciona una franja
+        </option>
+
       </select>
 
-      <button type="submit">Registrarse</button>
+
+      <button type="submit">
+        Registrarse
+      </button>
+
     </form>
+
   </div>
 
-  <script src="app.js"></script>
+
+  <script src="./app.js?v=2"></script>
+
 </body>
+
 </html>
