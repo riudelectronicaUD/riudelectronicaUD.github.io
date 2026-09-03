@@ -2,27 +2,47 @@
 <html lang="es">
 
 <head>
+
   <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <title>Actividad Siemens</title>
+  <title>Actividades SIEMENS</title>
 
-  <link rel="stylesheet" href="./style.css?v=4">
+  <!-- HOJA DE ESTILOS -->
+  <link
+    rel="stylesheet"
+    href="./style.css?v=6"
+  >
+
 </head>
+
 
 <body>
 
   <div class="container">
 
-    <h1>Actividad Siemens</h1>
+    <!-- TÍTULO -->
+    <h1>
+      Actividades SIEMENS
+    </h1>
 
+
+    <!-- DESCRIPCIÓN -->
     <p class="descripcion">
-      Diligencia tus datos y selecciona la franja horaria.
+      Diligencia tus datos y selecciona la franja horaria
+      en la que deseas participar.
     </p>
 
+
+    <!-- FORMULARIO -->
     <form id="registro-form">
 
+
+      <!-- TIPO DE DOCUMENTO -->
       <label for="tipoDocumento">
         Tipo de documento
       </label>
@@ -32,7 +52,12 @@
         name="tipoDocumento"
         required
       >
-        <option value="" disabled selected>
+
+        <option
+          value=""
+          disabled
+          selected
+        >
           Selecciona el tipo de documento
         </option>
 
@@ -43,9 +68,11 @@
         <option value="TI">
           Tarjeta de identidad - TI
         </option>
+
       </select>
 
 
+      <!-- NÚMERO DE DOCUMENTO -->
       <label for="documento">
         Número de documento
       </label>
@@ -57,10 +84,12 @@
         inputmode="numeric"
         pattern="[0-9]+"
         placeholder="Ej. 1012345678"
+        autocomplete="off"
         required
       >
 
 
+      <!-- CÓDIGO DE ESTUDIANTE -->
       <label for="codigo">
         Código de estudiante
       </label>
@@ -70,11 +99,14 @@
         id="codigo"
         name="codigo"
         inputmode="numeric"
+        pattern="[0-9]+"
         placeholder="Ej. 20211005082"
+        autocomplete="off"
         required
       >
 
 
+      <!-- NOMBRE -->
       <label for="nombre">
         Nombre completo
       </label>
@@ -84,10 +116,12 @@
         id="nombre"
         name="nombre"
         placeholder="Escribe tu nombre completo"
+        autocomplete="name"
         required
       >
 
 
+      <!-- CORREO INSTITUCIONAL -->
       <label for="email">
         Correo institucional
       </label>
@@ -97,10 +131,12 @@
         id="email"
         name="email"
         placeholder="usuario@udistrital.edu.co"
+        autocomplete="email"
         required
       >
 
 
+      <!-- FRANJA HORARIA -->
       <label for="franja">
         Franja horaria
       </label>
@@ -110,21 +146,31 @@
         name="franja"
         required
       >
-        <option value="" disabled selected>
-          Selecciona una franja
+
+        <option
+          value=""
+          disabled
+          selected
+        >
+          Cargando franjas...
         </option>
+
       </select>
 
 
+      <!-- BOTÓN -->
       <button type="submit">
         Registrarse
       </button>
+
 
     </form>
 
   </div>
 
-  <script src="./app.js?v=4"></script>
+
+  <!-- ARCHIVO JAVASCRIPT -->
+  <script src="./app.js?v=6"></script>
 
 </body>
 
