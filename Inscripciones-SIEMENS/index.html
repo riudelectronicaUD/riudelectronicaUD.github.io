@@ -8,7 +8,7 @@
 
   <title>Registro de Actividad</title>
 
-  <link rel="stylesheet" href="./style.css?v=2">
+  <link rel="stylesheet" href="./style.css?v=4">
 </head>
 
 <body>
@@ -18,23 +18,66 @@
     <h1>Registro de Actividad</h1>
 
     <p class="descripcion">
-      Selecciona la franja horaria en la que deseas participar.
+      Diligencia tus datos y selecciona la franja horaria.
     </p>
 
     <form id="registro-form">
 
-      <label for="codigo">Código de estudiante</label>
+      <label for="tipoDocumento">
+        Tipo de documento
+      </label>
+
+      <select
+        id="tipoDocumento"
+        name="tipoDocumento"
+        required
+      >
+        <option value="" disabled selected>
+          Selecciona el tipo de documento
+        </option>
+
+        <option value="CC">
+          Cédula de ciudadanía - CC
+        </option>
+
+        <option value="TI">
+          Tarjeta de identidad - TI
+        </option>
+      </select>
+
+
+      <label for="documento">
+        Número de documento
+      </label>
+
+      <input
+        type="text"
+        id="documento"
+        name="documento"
+        inputmode="numeric"
+        pattern="[0-9]+"
+        placeholder="Ej. 1012345678"
+        required
+      >
+
+
+      <label for="codigo">
+        Código de estudiante
+      </label>
 
       <input
         type="text"
         id="codigo"
         name="codigo"
-        placeholder="Ej. 20211015082"
+        inputmode="numeric"
+        placeholder="Ej. 20211005082"
         required
       >
 
 
-      <label for="nombre">Nombre completo</label>
+      <label for="nombre">
+        Nombre completo
+      </label>
 
       <input
         type="text"
@@ -45,7 +88,9 @@
       >
 
 
-      <label for="email">Correo institucional</label>
+      <label for="email">
+        Correo institucional
+      </label>
 
       <input
         type="email"
@@ -56,14 +101,18 @@
       >
 
 
-      <label for="franja">Franja horaria</label>
+      <label for="franja">
+        Franja horaria
+      </label>
 
-      <select id="franja" name="franja" required>
-
+      <select
+        id="franja"
+        name="franja"
+        required
+      >
         <option value="" disabled selected>
           Selecciona una franja
         </option>
-
       </select>
 
 
@@ -75,8 +124,7 @@
 
   </div>
 
-
-  <script src="./app.js?v=2"></script>
+  <script src="./app.js?v=4"></script>
 
 </body>
 
