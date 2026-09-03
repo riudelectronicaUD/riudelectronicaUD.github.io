@@ -6,18 +6,14 @@
   box-sizing: border-box;
 }
 
-
 html,
 body {
   margin: 0;
   padding: 0;
-
   min-height: 100%;
 }
 
-
 body {
-
   min-height: 100vh;
 
   font-family:
@@ -26,85 +22,138 @@ body {
     sans-serif;
 
   display: flex;
-
   justify-content: center;
-
   align-items: center;
 
   padding: 30px 15px;
 
-
   /* ========================================================
-     IMAGEN DE FONDO
+     FONDO
   ======================================================== */
 
   background-image:
-
     linear-gradient(
-      rgba(0, 0, 0, 0.30),
-      rgba(0, 0, 0, 0.30)
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.15)
     ),
-
     url("./fondo.jpeg");
 
-
   background-size: cover;
-
   background-position: center;
-
   background-repeat: no-repeat;
-
   background-attachment: fixed;
-
 }
 
 
 /* ==========================================================
-   CONTENEDOR DEL FORMULARIO
+   CONTENEDOR LIQUID GLASS
 ========================================================== */
 
 .container {
-
   width: 100%;
-
   max-width: 540px;
-
-
-  /*
-    Fondo blanco transparente.
-
-    Si quieres todavía más transparencia,
-    puedes bajar 0.72 a 0.60.
-  */
-
-  background-color:
-    rgba(255, 255, 255, 0.72);
-
 
   padding: 38px;
 
+  border-radius: 26px;
 
-  border-radius: 20px;
-
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.60);
-
-
-  box-shadow:
-    0 15px 45px
-    rgba(0, 0, 0, 0.32);
-
+  /* Transparencia principal */
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.07)
+    );
 
   /* Efecto vidrio */
-
   backdrop-filter:
-    blur(5px);
+    blur(20px)
+    saturate(160%);
 
   -webkit-backdrop-filter:
-    blur(5px);
+    blur(20px)
+    saturate(160%);
 
+  /* Borde brillante */
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.38);
+
+  /* Profundidad */
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* ==========================================================
+   BRILLO SUPERIOR DEL VIDRIO
+========================================================== */
+
+.container::before {
+  content: "";
+
+  position: absolute;
+
+  top: -30%;
+  left: -20%;
+
+  width: 140%;
+  height: 70%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.08) 35%,
+      transparent 70%
+    );
+
+  pointer-events: none;
+
+  transform: rotate(-8deg);
+}
+
+
+/* ==========================================================
+   REFLEJO LATERAL
+========================================================== */
+
+.container::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.12),
+      transparent 28%,
+      transparent 72%,
+      rgba(255, 255, 255, 0.06)
+    );
+
+  pointer-events: none;
+}
+
+
+/* Todo el contenido por encima del efecto glass */
+
+.container > * {
+  position: relative;
+  z-index: 1;
 }
 
 
@@ -113,25 +162,18 @@ body {
 ========================================================== */
 
 h1 {
-
-  margin:
-    0
-    0
-    10px;
-
+  margin: 0 0 12px;
 
   text-align: center;
 
-
-  font-size: 31px;
-
+  font-size: 32px;
 
   font-weight: 700;
 
+  color: #ffffff;
 
-  color:
-    #8b1d41;
-
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
 
@@ -140,25 +182,18 @@ h1 {
 ========================================================== */
 
 .descripcion {
-
-  margin:
-    0
-    0
-    30px;
-
+  margin: 0 0 30px;
 
   text-align: center;
 
-
   font-size: 15px;
-
 
   line-height: 1.5;
 
+  color: rgba(255, 255, 255, 0.95);
 
-  color:
-    #444444;
-
+  text-shadow:
+    0 1px 5px rgba(0, 0, 0, 0.45);
 }
 
 
@@ -167,11 +202,8 @@ h1 {
 ========================================================== */
 
 form {
-
   display: flex;
-
   flex-direction: column;
-
 }
 
 
@@ -180,114 +212,97 @@ form {
 ========================================================== */
 
 label {
-
   margin-bottom: 7px;
-
 
   font-size: 14px;
 
-
   font-weight: 700;
 
+  color: #ffffff;
 
-  color:
-    #272727;
-
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 
 /* ==========================================================
-   INPUTS Y SELECT
+   INPUTS Y SELECTS
 ========================================================== */
 
 input,
 select {
-
   width: 100%;
 
+  padding: 13px 14px;
 
-  padding:
-    13px
-    14px;
+  margin-bottom: 19px;
 
-
-  margin-bottom:
-    19px;
-
+  border-radius: 11px;
 
   border:
     1px solid
-    rgba(120, 120, 120, 0.55);
+    rgba(255, 255, 255, 0.32);
 
+  background:
+    rgba(255, 255, 255, 0.74);
 
-  border-radius:
-    9px;
-
-
-  background-color:
-    rgba(255, 255, 255, 0.88);
-
-
-  color:
-    #333333;
-
+  color: #222222;
 
   font-family:
     Arial,
     Helvetica,
     sans-serif;
 
+  font-size: 15px;
 
-  font-size:
-    15px;
+  backdrop-filter:
+    blur(8px);
 
+  -webkit-backdrop-filter:
+    blur(8px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 4px 12px rgba(0, 0, 0, 0.08);
 
   transition:
     border-color 0.25s ease,
     box-shadow 0.25s ease,
-    background-color 0.25s ease;
-
+    background-color 0.25s ease,
+    transform 0.2s ease;
 }
 
 
 /* ==========================================================
-   CAMPO SELECCIONADO
+   INPUT EN FOCO
 ========================================================== */
 
 input:focus,
 select:focus {
-
-  outline:
-    none;
-
+  outline: none;
 
   border-color:
-    #8b1d41;
+    rgba(255, 255, 255, 0.85);
 
-
-  background-color:
-    rgba(255, 255, 255, 0.97);
-
+  background:
+    rgba(255, 255, 255, 0.88);
 
   box-shadow:
-    0
-    0
-    0
-    3px
-    rgba(139, 29, 65, 0.17);
+    0 0 0 3px rgba(255, 255, 255, 0.18),
+    0 6px 18px rgba(0, 0, 0, 0.12);
 
+  transform:
+    translateY(-1px);
 }
 
 
 /* ==========================================================
-   PLACEHOLDERS
+   PLACEHOLDER
 ========================================================== */
 
 input::placeholder {
-
   color:
-    #888888;
-
+    #777777;
 }
 
 
@@ -296,10 +311,8 @@ input::placeholder {
 ========================================================== */
 
 select {
-
   cursor:
     pointer;
-
 }
 
 
@@ -308,14 +321,11 @@ select {
 ========================================================== */
 
 select option:disabled {
-
   color:
-    #888888;
-
+    #8d8d8d;
 
   background-color:
     #eeeeee;
-
 }
 
 
@@ -324,51 +334,43 @@ select option:disabled {
 ========================================================== */
 
 button {
-
   width: 100%;
 
+  margin-top: 8px;
 
-  margin-top:
-    6px;
+  padding: 15px;
 
+  border: none;
 
-  padding:
-    15px;
+  border-radius: 12px;
 
-
-  border:
-    none;
-
-
-  border-radius:
-    9px;
-
-
-  background-color:
-    #8b1d41;
-
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 29, 65, 0.96),
+      rgba(105, 21, 49, 0.96)
+    );
 
   color:
     #ffffff;
 
-
   font-size:
     16px;
-
 
   font-weight:
     700;
 
-
   cursor:
     pointer;
 
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
 
   transition:
-    background-color 0.25s ease,
     transform 0.25s ease,
-    box-shadow 0.25s ease;
-
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
 }
 
 
@@ -377,45 +379,34 @@ button {
 ========================================================== */
 
 button:hover:not(:disabled) {
-
-  background-color:
-    #691531;
-
-
   transform:
     translateY(-2px);
 
-
   box-shadow:
-    0
-    7px
-    18px
-    rgba(0, 0, 0, 0.24);
+    0 12px 28px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.30);
 
+  filter:
+    brightness(1.06);
 }
 
 
 /* ==========================================================
-   BOTÓN MIENTRAS REGISTRA
+   BOTÓN DESHABILITADO
 ========================================================== */
 
 button:disabled {
-
-  background-color:
-    #999999;
-
+  background:
+    rgba(150, 150, 150, 0.75);
 
   cursor:
     not-allowed;
 
-
   transform:
     none;
 
-
   box-shadow:
     none;
-
 }
 
 
@@ -423,66 +414,56 @@ button:disabled {
    CELULARES
 ========================================================== */
 
-@media
-(max-width: 600px) {
+@media (max-width: 600px) {
 
   body {
-
     align-items:
       flex-start;
 
-
     padding:
-      20px
-      15px;
+      20px 14px;
 
+    background-attachment:
+      scroll;
   }
 
 
   .container {
-
     margin-top:
       15px;
 
-
     padding:
-      28px
-      21px;
-
+      28px 21px;
 
     border-radius:
-      16px;
+      22px;
 
+    backdrop-filter:
+      blur(16px)
+      saturate(150%);
+
+    -webkit-backdrop-filter:
+      blur(16px)
+      saturate(150%);
   }
 
 
   h1 {
-
     font-size:
-      26px;
-
+      27px;
   }
 
 
   .descripcion {
-
     font-size:
       14px;
-
   }
 
 
   input,
   select {
-
     font-size:
       16px;
-
-    /*
-      16px evita que algunos
-      celulares hagan zoom automático.
-    */
-
   }
 
 }
@@ -492,23 +473,17 @@ button:disabled {
    PANTALLAS MUY PEQUEÑAS
 ========================================================== */
 
-@media
-(max-width: 380px) {
+@media (max-width: 380px) {
 
   .container {
-
     padding:
-      23px
-      17px;
-
+      23px 17px;
   }
 
 
   h1 {
-
     font-size:
-      23px;
-
+      24px;
   }
 
 }
