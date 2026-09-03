@@ -20,15 +20,18 @@ const franjas = [
 
 
 // ==========================================================
-// URL DEL APPS SCRIPT
+// URL DE GOOGLE APPS SCRIPT
 // ==========================================================
+
+// PEGA AQUÍ TU URL REAL.
+// Debe terminar en /exec
 
 const API_URL =
   'https://script.google.com/macros/s/AKfycbyQRVhvKUmrT7j6iIcVIJ0ax8TehXe6bUNrcVf2ze5BAtElJRcoYbcAqja_opkJFXFUig/exec';
 
 
 // ==========================================================
-// ELEMENTOS
+// ELEMENTOS DEL HTML
 // ==========================================================
 
 const franjaSelect =
@@ -39,7 +42,7 @@ const registroForm =
 
 
 // ==========================================================
-// CREAR FRANJAS COMO FUNCIONABAN ANTES
+// CREAR MENÚ DE FRANJAS
 // ==========================================================
 
 function crearFranjas() {
@@ -50,55 +53,64 @@ function crearFranjas() {
     </option>
   `;
 
+
   franjas.forEach(franja => {
 
     const option =
       document.createElement('option');
 
+
     // IMPORTANTE:
-    // El value SIEMPRE conserva solamente la franja.
+    // El value solamente contiene la franja.
     option.value = franja;
 
-    option.textContent = franja;
 
-    franjaSelect.appendChild(option);
+    option.textContent =
+      franja;
+
+
+    franjaSelect.appendChild(
+      option
+    );
 
   });
 
 }
 
 
-// Crear el menú inmediatamente
+// Crear menú inmediatamente
 crearFranjas();
 
 
 // ==========================================================
-// CONSULTAR SOLO SI UNA FRANJA ESTÁ LLENA
+// CONSULTAR DISPONIBILIDAD DE CUPOS
 // ==========================================================
 
 async function revisarCupos() {
 
   try {
 
+    /*
+      Date.now() evita que Chrome
+      utilice una consulta vieja
+      almacenada en caché.
+    */
+
     const response =
       await fetch(
-        API_URL + '?t=' + Date.now()
+        API_URL +
+        '?consulta=cupos&t=' +
+        Date.now(),
+        {
+          cache: 'no-store'
+        }
       );
 
 
-    const resultado =
-      await response.json();
+    if (!response.ok) {
 
-
-    // Si falla esta consulta,
-    // NO afecta el funcionamiento del formulario.
-    if (
-      !resultado.ok ||
-      !Array.isArray(resultado.disponibilidad)
-    ) {
-
-      console.log(
-        'No se pudo consultar la disponibilidad.'
+      console.warn(
+        'No fue posible consultar los cupos.'
       );
 
       return;
@@ -106,65 +118,123 @@ async function revisarCupos() {
     }
 
 
-    resultado.disponibilidad.forEach(item => {
+    const resultado =
+      await response.json();
 
-      const opcion =
-        Array
-          .from(franjaSelect.options)
-          .find(
+
+    if (
+      !resultado.ok ||
+      !Array.isArray(
+        resultado.disponibilidad
+      )
+    ) {
+
+      console.warn(
+        'La disponibilidad no tiene el formato esperado.'
+      );
+
+      return;
+
+    }
+
+
+    // ======================================================
+    // ACTUALIZAR CADA FRANJA
+    // ======================================================
+
+    resultado.disponibilidad.forEach(
+      item => {
+
+
+        const opcion =
+          Array.from(
+            franjaSelect.options
+          ).find(
             option =>
-              option.value === item.franja
+              option.value ===
+              item.franja
           );
 
 
-      if (!opcion) {
-        return;
+        if (!opcion) {
+          return;
+        }
+
+
+        const cupos =
+          Number(
+            item.cuposRestantes
+          );
+
+
+        // ==================================================
+        // SIN CUPOS
+        // ==================================================
+
+        if (cupos <= 0) {
+
+
+          /*
+            Si el estudiante tenía seleccionada
+            esta franja justo cuando se agotó,
+            quitamos la selección.
+          */
+
+          if (
+            franjaSelect.value ===
+            item.franja
+          ) {
+
+            franjaSelect.value = '';
+
+          }
+
+
+          opcion.disabled = true;
+
+
+          opcion.textContent =
+            item.franja +
+            ' — SIN CUPOS';
+
+        }
+
+
+        // ==================================================
+        // CON CUPOS
+        // ==================================================
+
+        else {
+
+          opcion.disabled = false;
+
+
+          /*
+            Mostramos solamente la hora.
+
+            Si después quieres mostrar:
+            "4 cupos disponibles",
+            también se puede.
+          */
+
+          opcion.textContent =
+            item.franja;
+
+        }
+
       }
-
-
-      // ==============================================
-      // SI NO HAY CUPOS
-      // ==============================================
-
-      if (Number(item.cuposRestantes) <= 0) {
-
-        opcion.disabled = true;
-
-        opcion.textContent =
-          item.franja +
-          ' — SIN CUPOS';
-
-      }
-
-      // ==============================================
-      // SI TODAVÍA HAY CUPOS
-      // ==============================================
-
-      else {
-
-        opcion.disabled = false;
-
-        // Solamente mostramos la hora.
-        // Si quieres mostrar los cupos también
-        // te digo cómo hacerlo.
-        opcion.textContent =
-          item.franja;
-
-      }
-
-    });
+    );
 
 
   } catch (error) {
 
     /*
-      MUY IMPORTANTE:
-      si esta consulta falla,
-      no bloqueamos el formulario.
+      Si falla temporalmente la consulta,
+      NO bloqueamos el formulario.
     */
 
-    console.log(
-      'No fue posible consultar cupos:',
+    console.warn(
+      'Error consultando cupos:',
       error
     );
 
@@ -173,13 +243,52 @@ async function revisarCupos() {
 }
 
 
-// Consultar cuando abre la página
+// ==========================================================
+// CONSULTAR AL ABRIR LA PÁGINA
+// ==========================================================
+
 revisarCupos();
 
 
 // ==========================================================
-// REGISTRO
-// ESTA ES LA LÓGICA NORMAL QUE YA FUNCIONABA
+// ACTUALIZAR AUTOMÁTICAMENTE CADA 5 SEGUNDOS
+// ==========================================================
+
+setInterval(
+  revisarCupos,
+  5000
+);
+
+
+// ==========================================================
+// CONSULTAR CUANDO EL USUARIO VUELVE A LA PESTAÑA
+// ==========================================================
+
+window.addEventListener(
+  'focus',
+  revisarCupos
+);
+
+
+// ==========================================================
+// CONSULTAR CUANDO VA A SELECCIONAR UNA FRANJA
+// ==========================================================
+
+franjaSelect.addEventListener(
+  'focus',
+  revisarCupos
+);
+
+
+// También cuando hace clic sobre el selector
+franjaSelect.addEventListener(
+  'mousedown',
+  revisarCupos
+);
+
+
+// ==========================================================
+// ENVIAR FORMULARIO
 // ==========================================================
 
 registroForm.addEventListener(
@@ -190,39 +299,49 @@ registroForm.addEventListener(
 
 
     // ======================================================
-    // DATOS
+    // OBTENER DATOS
     // ======================================================
 
     const tipoDocumento =
       document
-        .getElementById('tipoDocumento')
+        .getElementById(
+          'tipoDocumento'
+        )
         .value;
 
 
     const documento =
       document
-        .getElementById('documento')
+        .getElementById(
+          'documento'
+        )
         .value
         .trim();
 
 
     const codigo =
       document
-        .getElementById('codigo')
+        .getElementById(
+          'codigo'
+        )
         .value
         .trim();
 
 
     const nombre =
       document
-        .getElementById('nombre')
+        .getElementById(
+          'nombre'
+        )
         .value
         .trim();
 
 
     const email =
       document
-        .getElementById('email')
+        .getElementById(
+          'email'
+        )
         .value
         .trim()
         .toLowerCase();
@@ -248,10 +367,14 @@ registroForm.addEventListener(
 
 
     // ======================================================
-    // VALIDAR DOCUMENTO
+    // VALIDAR NÚMERO DE DOCUMENTO
     // ======================================================
 
-    if (!/^[0-9]+$/.test(documento)) {
+    if (
+      !/^[0-9]+$/.test(
+        documento
+      )
+    ) {
 
       alert(
         'El número de documento debe contener únicamente números.'
@@ -266,10 +389,29 @@ registroForm.addEventListener(
     // VALIDAR CÓDIGO
     // ======================================================
 
-    if (!/^[0-9]+$/.test(codigo)) {
+    if (
+      !/^[0-9]+$/.test(
+        codigo
+      )
+    ) {
 
       alert(
         'El código estudiantil debe contener únicamente números.'
+      );
+
+      return;
+
+    }
+
+
+    // ======================================================
+    // VALIDAR NOMBRE
+    // ======================================================
+
+    if (!nombre) {
+
+      alert(
+        'Ingresa tu nombre completo.'
       );
 
       return;
@@ -303,12 +445,45 @@ registroForm.addEventListener(
     if (!franja) {
 
       alert(
-        'Selecciona una franja horaria.'
+        'Selecciona una franja horaria disponible.'
       );
 
       return;
 
     }
+
+
+    // ======================================================
+    // REVISAR CUPOS JUSTO ANTES DEL REGISTRO
+    // ======================================================
+
+    await revisarCupos();
+
+
+    /*
+      Es posible que mientras el estudiante
+      llenaba el formulario se haya agotado
+      la franja.
+
+      Si revisarCupos() la deshabilitó,
+      el select queda vacío.
+    */
+
+    if (!franjaSelect.value) {
+
+      alert(
+        'La franja seleccionada acaba de quedarse sin cupos. ' +
+        'Por favor selecciona otra franja.'
+      );
+
+      return;
+
+    }
+
+
+    // Tomamos nuevamente la franja
+    const franjaFinal =
+      franjaSelect.value;
 
 
     // ======================================================
@@ -321,14 +496,16 @@ registroForm.addEventListener(
       );
 
 
-    boton.disabled = true;
+    boton.disabled =
+      true;
+
 
     boton.textContent =
       'Registrando...';
 
 
     // ======================================================
-    // DATOS QUE SE ENVÍAN
+    // DATOS PARA GOOGLE SHEETS
     // ======================================================
 
     const datos = {
@@ -348,10 +525,8 @@ registroForm.addEventListener(
       email:
         email,
 
-      // IMPORTANTE:
-      // Aquí enviamos solamente la hora original.
       franja:
-        franja
+        franjaFinal
 
     };
 
@@ -367,7 +542,8 @@ registroForm.addEventListener(
           API_URL,
           {
 
-            method: 'POST',
+            method:
+              'POST',
 
             headers: {
 
@@ -377,13 +553,18 @@ registroForm.addEventListener(
             },
 
             body:
-              JSON.stringify(datos)
+              JSON.stringify(
+                datos
+              )
 
           }
         );
 
 
-      // Primero leer como texto
+      // ====================================================
+      // LEER RESPUESTA
+      // ====================================================
+
       const texto =
         await response.text();
 
@@ -394,9 +575,29 @@ registroForm.addEventListener(
       );
 
 
-      // Convertir respuesta a JSON
-      const resultado =
-        JSON.parse(texto);
+      let resultado;
+
+
+      try {
+
+        resultado =
+          JSON.parse(
+            texto
+          );
+
+      } catch (errorJSON) {
+
+        console.error(
+          'Respuesta no válida:',
+          texto
+        );
+
+
+        throw new Error(
+          'Google no devolvió una respuesta válida.'
+        );
+
+      }
 
 
       // ====================================================
@@ -405,12 +606,14 @@ registroForm.addEventListener(
 
       if (resultado.ok) {
 
+
         let mensaje =
           resultado.mensaje;
 
 
         if (
-          resultado.cuposRestantes !== undefined
+          resultado.cuposRestantes !==
+          undefined
         ) {
 
           mensaje +=
@@ -420,12 +623,14 @@ registroForm.addEventListener(
         }
 
 
-        alert(mensaje);
+        alert(
+          mensaje
+        );
 
 
-        // Guardamos cuál fue la franja utilizada
+        // Guardamos la franja antes del reset
         const franjaRegistrada =
-          franja;
+          franjaFinal;
 
 
         // Limpiar formulario
@@ -433,7 +638,7 @@ registroForm.addEventListener(
 
 
         // ==================================================
-        // SI ESE ERA EL ÚLTIMO CUPO
+        // SI ERA EL ÚLTIMO CUPO
         // ==================================================
 
         if (
@@ -442,22 +647,22 @@ registroForm.addEventListener(
           ) <= 0
         ) {
 
+
           const opcion =
-            Array
-              .from(
-                franjaSelect.options
-              )
-              .find(
-                option =>
-                  option.value ===
-                  franjaRegistrada
-              );
+            Array.from(
+              franjaSelect.options
+            ).find(
+              option =>
+                option.value ===
+                franjaRegistrada
+            );
 
 
           if (opcion) {
 
             opcion.disabled =
               true;
+
 
             opcion.textContent =
               franjaRegistrada +
@@ -468,16 +673,18 @@ registroForm.addEventListener(
         }
 
 
-        // Consultar nuevamente por si cambió otra franja
-        revisarCupos();
+        // Actualizar todas las franjas
+        await revisarCupos();
 
       }
 
+
       // ====================================================
-      // EL SERVIDOR RECHAZÓ EL REGISTRO
+      // REGISTRO RECHAZADO
       // ====================================================
 
       else {
+
 
         alert(
           resultado.mensaje
@@ -485,17 +692,18 @@ registroForm.addEventListener(
 
 
         /*
-          Si alguien tomó el último cupo
-          mientras se diligenciaba el formulario,
-          actualizamos el menú.
+          Si otra persona tomó el último cupo
+          exactamente antes de este registro,
+          actualizamos inmediatamente.
         */
 
-        revisarCupos();
+        await revisarCupos();
 
       }
 
 
     } catch (error) {
+
 
       console.error(
         'ERROR DE REGISTRO:',
@@ -517,7 +725,9 @@ registroForm.addEventListener(
 
     finally {
 
-      boton.disabled = false;
+      boton.disabled =
+        false;
+
 
       boton.textContent =
         'Registrarse';
