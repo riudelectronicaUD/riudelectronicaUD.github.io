@@ -1,1 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingeniería Electrónica</title>
 
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #222;
+        }
+
+        header {
+            background-color: #0b3d91;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #082b66;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd54f;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: white;
+        }
+
+        .hero h1 {
+            color: #0b3d91;
+            font-size: 42px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .seccion {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .seccion h2 {
+            color: #0b3d91;
+            text-align: center;
+        }
+
+        .tarjetas {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tarjeta {
+            background-color: white;
+            width: 250px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .tarjeta h3 {
+            color: #0b3d91;
+        }
+
+        .boton {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #0b3d91;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .boton:hover {
+            background-color: #082b66;
+        }
+
+        footer {
+            background-color: #0b3d91;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Ingeniería Electrónica</h1>
+        <p>Innovación, tecnología y desarrollo</p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#programa">Programa</a>
+        <a href="#areas">Áreas</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <h1>Bienvenidos a Ingeniería Electrónica</h1>
+
+        <p>
+            Formación de profesionales capaces de diseñar, desarrollar y
+            aplicar soluciones tecnológicas en electrónica, automatización,
+            telecomunicaciones y sistemas inteligentes.
+        </p>
+
+        <a href="#programa" class="boton">Conocer el programa</a>
+    </section>
+
+    <section class="seccion" id="programa">
+        <h2>Sobre el programa</h2>
+
+        <p>
+            Ingeniería Electrónica estudia el diseño y aplicación de circuitos,
+            sistemas digitales, sistemas de control, comunicaciones,
+            instrumentación y tecnologías asociadas al procesamiento de señales.
+        </p>
+    </section>
+
+    <section class="seccion" id="areas">
+        <h2>Áreas de formación</h2>
+
+        <div class="tarjetas">
+
+            <div class="tarjeta">
+                <h3>⚡ Electrónica</h3>
+                <p>
+                    Diseño y análisis de circuitos electrónicos,
+                    dispositivos y sistemas.
+                </p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>🤖 Automatización</h3>
+                <p>
+                    Control de procesos, robótica y sistemas
+                    automatizados.
+                </p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>📡 Telecomunicaciones</h3>
+                <p>
+                    Sistemas de comunicación, transmisión de datos
+                    y redes.
+                </p>
+            </div>
+
+            <div class="tarjeta">
+                <h3>💻 Sistemas Digitales</h3>
+                <p>
+                    Microcontroladores, programación, sistemas embebidos
+                    y procesamiento digital.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="seccion" id="contacto">
+        <h2>Contacto</h2>
+
+        <p style="text-align:center;">
+            📧 electronica@universidad.edu.co
+        </p>
+
+        <p style="text-align:center;">
+            📍 Bogotá D.C., Colombia
+        </p>
+    </section>
+
+    <footer>
+        <p>
+            © 2026 Ingeniería Electrónica - Página de ejemplo
+        </p>
+    </footer>
+
+</body>
+</html>
