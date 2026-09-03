@@ -1,3 +1,7 @@
+// ==========================================================
+// FRANJAS HORARIAS
+// ==========================================================
+
 const franjas = [
   '8:30 a. m. - 9:10 a. m.',
   '9:10 a. m. - 9:50 a. m.',
@@ -15,13 +19,18 @@ const franjas = [
 ];
 
 
-// ======================================================
-// PEGA AQUÍ TU URL REAL DE APPS SCRIPT
-// ======================================================
+// ==========================================================
+// URL DE GOOGLE APPS SCRIPT
+// DEJA AQUÍ TU URL REAL QUE TERMINA EN /exec
+// ==========================================================
 
 const API_URL =
-  'PEGA_AQUI_TU_URL_QUE_TERMINA_EN_EXEC';
+  'PEGA_AQUI_TU_URL_REAL_QUE_TERMINA_EN_EXEC';
 
+
+// ==========================================================
+// ELEMENTOS DEL HTML
+// ==========================================================
 
 const franjaSelect =
   document.getElementById('franja');
@@ -30,75 +39,135 @@ const registroForm =
   document.getElementById('registro-form');
 
 
-// ======================================================
-// CARGAR DISPONIBILIDAD DE LAS FRANJAS
-// ======================================================
+// ==========================================================
+// CREAR EL MENÚ INMEDIATAMENTE
+// ==========================================================
 
-async function cargarFranjas() {
+function crearMenuFranjas() {
 
-  // Mientras consulta Google Sheets
   franjaSelect.innerHTML = `
     <option value="" disabled selected>
-      Cargando franjas...
+      Selecciona una franja
     </option>
   `;
 
-  franjaSelect.disabled = true;
+  franjas.forEach(franja => {
 
+    const option =
+      document.createElement('option');
+
+    option.value = franja;
+
+    option.textContent = franja;
+
+    option.disabled = false;
+
+    franjaSelect.appendChild(option);
+
+  });
+
+}
+
+
+// Crear inmediatamente
+crearMenuFranjas();
+
+
+// ==========================================================
+// CONSULTAR CUPOS EN SEGUNDO PLANO
+// ==========================================================
+
+async function actualizarDisponibilidad() {
 
   try {
 
-    const response =
-      await fetch(API_URL);
+    /*
+      Agregamos un parámetro para evitar
+      que el navegador use información vieja.
+    */
+
+    const response = await fetch(
+      API_URL + '?consulta=disponibilidad&t=' + Date.now()
+    );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        'Respuesta HTTP: ' + response.status
+      );
+
+    }
 
 
     const resultado =
       await response.json();
 
 
+    /*
+      IMPORTANTE:
+
+      Si Google no devuelve disponibilidad,
+      NO destruimos el menú.
+
+      Simplemente dejamos las franjas normales.
+    */
+
     if (
       !resultado.ok ||
-      !resultado.disponibilidad
+      !Array.isArray(resultado.disponibilidad)
     ) {
 
-      throw new Error(
-        'No se pudo obtener la disponibilidad.'
+      console.warn(
+        'No se recibió información de disponibilidad.'
       );
+
+      return;
 
     }
 
 
-    // Limpiar select
-    franjaSelect.innerHTML = `
-      <option value="" disabled selected>
-        Selecciona una franja
-      </option>
-    `;
-
-
-    // Crear todas las opciones
     resultado.disponibilidad.forEach(item => {
 
+      /*
+        Buscar la opción correspondiente
+        por su value.
+      */
+
       const option =
-        document.createElement('option');
+        Array.from(franjaSelect.options)
+          .find(
+            opcion =>
+              opcion.value === item.franja
+          );
 
 
-      option.value =
-        item.franja;
+      if (!option) {
+        return;
+      }
 
 
-      // =========================================
-      // SI YA NO HAY CUPOS
-      // =========================================
+      // ==============================================
+      // FRANJA LLENA
+      // ==============================================
 
       if (item.cuposRestantes <= 0) {
 
         option.disabled = true;
 
         option.textContent =
-          item.franja + ' — AGOTADA';
+          item.franja +
+          ' — SIN CUPOS';
 
-      } else {
+      }
+
+      // ==============================================
+      // FRANJA DISPONIBLE
+      // ==============================================
+
+      else {
+
+        option.disabled = false;
 
         option.textContent =
           item.franja +
@@ -108,44 +177,34 @@ async function cargarFranjas() {
 
       }
 
-
-      franjaSelect.appendChild(option);
-
     });
-
-
-    franjaSelect.disabled = false;
 
 
   } catch (error) {
 
-    console.error(
-      'Error cargando franjas:',
+    /*
+      Si falla Google Apps Script,
+      el menú NO deja de funcionar.
+    */
+
+    console.warn(
+      'No fue posible actualizar los cupos:',
       error
     );
-
-
-    franjaSelect.innerHTML = `
-      <option value="" disabled selected>
-        No fue posible cargar las franjas
-      </option>
-    `;
 
   }
 
 }
 
 
-// ======================================================
-// CARGAR FRANJAS AL ABRIR LA PÁGINA
-// ======================================================
-
-cargarFranjas();
+// Consultamos disponibilidad,
+// pero sin bloquear el menú.
+actualizarDisponibilidad();
 
 
-// ======================================================
+// ==========================================================
 // ENVIAR FORMULARIO
-// ======================================================
+// ==========================================================
 
 registroForm.addEventListener(
   'submit',
@@ -153,6 +212,10 @@ registroForm.addEventListener(
 
     e.preventDefault();
 
+
+    // ======================================================
+    // OBTENER DATOS
+    // ======================================================
 
     const tipoDocumento =
       document
@@ -193,9 +256,9 @@ registroForm.addEventListener(
       franjaSelect.value;
 
 
-    // ==================================================
+    // ======================================================
     // VALIDAR DOCUMENTO
-    // ==================================================
+    // ======================================================
 
     if (!/^[0-9]+$/.test(documento)) {
 
@@ -208,9 +271,9 @@ registroForm.addEventListener(
     }
 
 
-    // ==================================================
+    // ======================================================
     // VALIDAR CÓDIGO
-    // ==================================================
+    // ======================================================
 
     if (!/^[0-9]+$/.test(codigo)) {
 
@@ -223,9 +286,9 @@ registroForm.addEventListener(
     }
 
 
-    // ==================================================
+    // ======================================================
     // VALIDAR CORREO
-    // ==================================================
+    // ======================================================
 
     if (
       !email.endsWith(
@@ -242,20 +305,24 @@ registroForm.addEventListener(
     }
 
 
-    // ==================================================
+    // ======================================================
     // VALIDAR FRANJA
-    // ==================================================
+    // ======================================================
 
     if (!franja) {
 
       alert(
-        'Debes seleccionar una franja horaria disponible.'
+        'Debes seleccionar una franja horaria.'
       );
 
       return;
 
     }
 
+
+    // ======================================================
+    // BOTÓN
+    // ======================================================
 
     const boton =
       registroForm.querySelector(
@@ -268,6 +335,10 @@ registroForm.addEventListener(
     boton.textContent =
       'Registrando...';
 
+
+    // ======================================================
+    // DATOS A ENVIAR
+    // ======================================================
 
     const datos = {
 
@@ -294,6 +365,10 @@ registroForm.addEventListener(
 
     try {
 
+      // ====================================================
+      // ENVIAR A GOOGLE APPS SCRIPT
+      // ====================================================
+
       const response =
         await fetch(
           API_URL,
@@ -302,10 +377,8 @@ registroForm.addEventListener(
             method: 'POST',
 
             headers: {
-
               'Content-Type':
                 'text/plain;charset=utf-8'
-
             },
 
             body:
@@ -320,7 +393,7 @@ registroForm.addEventListener(
 
 
       console.log(
-        'Respuesta:',
+        'Respuesta del servidor:',
         texto
       );
 
@@ -328,6 +401,10 @@ registroForm.addEventListener(
       const resultado =
         JSON.parse(texto);
 
+
+      // ====================================================
+      // REGISTRO EXITOSO
+      // ====================================================
 
       if (resultado.ok) {
 
@@ -349,27 +426,69 @@ registroForm.addEventListener(
         alert(mensaje);
 
 
+        // ==================================================
+        // SI ACABA DE OCUPAR EL ÚLTIMO CUPO
+        // ==================================================
+
+        if (
+          resultado.cuposRestantes !== undefined &&
+          resultado.cuposRestantes <= 0
+        ) {
+
+          const option =
+            Array.from(
+              franjaSelect.options
+            ).find(
+              opcion =>
+                opcion.value === franja
+            );
+
+
+          if (option) {
+
+            option.disabled = true;
+
+            option.textContent =
+              franja +
+              ' — SIN CUPOS';
+
+          }
+
+        }
+
+
+        // Limpiar formulario
+
         registroForm.reset();
 
 
-        // ==========================================
-        // ACTUALIZAR CUPOS AUTOMÁTICAMENTE
-        // ==========================================
+        /*
+          Consultar nuevamente los cupos
+          para actualizar todas las franjas.
+        */
 
-        await cargarFranjas();
+        actualizarDisponibilidad();
 
+      }
 
-      } else {
+      // ====================================================
+      // REGISTRO NO PERMITIDO
+      // ====================================================
+
+      else {
 
         alert(
           resultado.mensaje
         );
 
 
-        // Por si otra persona tomó el último cupo
-        // mientras este usuario llenaba el formulario.
+        /*
+          Puede ocurrir que otra persona haya
+          tomado el último cupo mientras este
+          estudiante llenaba el formulario.
+        */
 
-        await cargarFranjas();
+        actualizarDisponibilidad();
 
       }
 
@@ -384,11 +503,17 @@ registroForm.addEventListener(
 
       alert(
         'No fue posible realizar el registro.\n\n' +
-        error.message
+        'Por favor, intenta nuevamente.'
       );
 
+    }
 
-    } finally {
+
+    // ======================================================
+    // ACTIVAR BOTÓN
+    // ======================================================
+
+    finally {
 
       boton.disabled = false;
 
