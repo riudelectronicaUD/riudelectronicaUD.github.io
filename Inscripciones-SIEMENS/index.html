@@ -10,12 +10,12 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>AULA MÓVIL SIEMENS</title>
+  <title>Actividades SIEMENS</title>
 
-  <!-- HOJA DE ESTILOS -->
+  <!-- CSS -->
   <link
     rel="stylesheet"
-    href="./style.css?v=6"
+    href="./style.css?v=9"
   >
 
 </head>
@@ -25,27 +25,41 @@
 
   <div class="container">
 
-    <!-- TÍTULO -->
+
+    <!-- ==================================================
+         TÍTULO
+    =================================================== -->
+
     <h1>
-      AULA MÓVIL SIEMENS
+      Actividades SIEMENS
     </h1>
 
 
-    <!-- DESCRIPCIÓN -->
+    <!-- ==================================================
+         DESCRIPCIÓN
+    =================================================== -->
+
     <p class="descripcion">
       Diligencia tus datos y selecciona la franja horaria
       en la que deseas participar.
     </p>
 
 
-    <!-- FORMULARIO -->
+    <!-- ==================================================
+         FORMULARIO
+    =================================================== -->
+
     <form id="registro-form">
 
 
-      <!-- TIPO DE DOCUMENTO -->
+      <!-- ==================================================
+           TIPO DE DOCUMENTO
+      =================================================== -->
+
       <label for="tipoDocumento">
         Tipo de documento
       </label>
+
 
       <select
         id="tipoDocumento"
@@ -61,9 +75,11 @@
           Selecciona el tipo de documento
         </option>
 
+
         <option value="CC">
           Cédula de ciudadanía - CC
         </option>
+
 
         <option value="TI">
           Tarjeta de identidad - TI
@@ -72,10 +88,15 @@
       </select>
 
 
-      <!-- NÚMERO DE DOCUMENTO -->
+
+      <!-- ==================================================
+           NÚMERO DE DOCUMENTO
+      =================================================== -->
+
       <label for="documento">
         Número de documento
       </label>
+
 
       <input
         type="text"
@@ -89,10 +110,15 @@
       >
 
 
-      <!-- CÓDIGO DE ESTUDIANTE -->
+
+      <!-- ==================================================
+           CÓDIGO DE ESTUDIANTE
+      =================================================== -->
+
       <label for="codigo">
         Código de estudiante
       </label>
+
 
       <input
         type="text"
@@ -106,10 +132,15 @@
       >
 
 
-      <!-- NOMBRE -->
+
+      <!-- ==================================================
+           NOMBRE COMPLETO
+      =================================================== -->
+
       <label for="nombre">
         Nombre completo
       </label>
+
 
       <input
         type="text"
@@ -121,10 +152,15 @@
       >
 
 
-      <!-- CORREO INSTITUCIONAL -->
+
+      <!-- ==================================================
+           CORREO INSTITUCIONAL
+      =================================================== -->
+
       <label for="email">
         Correo institucional
       </label>
+
 
       <input
         type="email"
@@ -136,10 +172,15 @@
       >
 
 
-      <!-- FRANJA HORARIA -->
+
+      <!-- ==================================================
+           FRANJA HORARIA
+      =================================================== -->
+
       <label for="franja">
         Franja horaria
       </label>
+
 
       <select
         id="franja"
@@ -152,14 +193,20 @@
           disabled
           selected
         >
-          Cargando franjas...
+          Selecciona una franja
         </option>
 
       </select>
 
 
-      <!-- BOTÓN -->
-      <button type="submit">
+
+      <!-- ==================================================
+           BOTÓN
+      =================================================== -->
+
+      <button
+        type="submit"
+      >
         Registrarse
       </button>
 
@@ -169,8 +216,14 @@
   </div>
 
 
-  <!-- ARCHIVO JAVASCRIPT -->
-  <script src="./app.js?v=6"></script>
+  <!-- ====================================================
+       JAVASCRIPT
+  ===================================================== -->
+
+  <script
+    src="./app.js?v=9"
+  ></script>
+
 
 </body>
 
