@@ -70,7 +70,7 @@ riudelectronicaUD.github.io/
 ├── index.html                         # Página principal
 ├── styles.css                         # Estilos de la página principal
 ├── script.js                          # Lectura del Excel y lógica principal
-├── Mejores estudiantes.xlsx            # Base de datos académica
+├── Mejores estudiantes.xlsx           # Base de datos académica
 │
 ├── logo.png                           # Logo institucional
 ├── logo.webp                          # Logo en formato WebP
@@ -482,7 +482,7 @@ Navegador: Google Chrome.
 
 ## 👥 Autores
 
-**Monitor Nicolás Moreno de Ingeniería Electrónica - Universidad Distrital Francisco José de Caldas**
+**Monitores Nicolás Moreno y Diego Pérez de Ingeniería Electrónica - Universidad Distrital Francisco José de Caldas**
 
 Desarrollado como herramienta de reconocimiento académico y apoyo a la comunidad estudiantil.
 
