@@ -26,7 +26,7 @@ fetch('Mejores estudiantes.xlsx')
                CASO A: PRIMERA PESTAÑA DE MATRÍCULAS
             =========================*/
 
-            if (nombreHoja === "matriculas de honor") {
+            if (nombreHoja === "matriculas de honor 2025-3") {
 
                 listaMatriculas = filas.map(row => ({
                     nombre: row["Periodo de ingreso"] ? String(row["Periodo de ingreso"]).trim() : "",
@@ -41,7 +41,7 @@ fetch('Mejores estudiantes.xlsx')
                CASO B: SEGUNDA PESTAÑA DE MATRÍCULAS
             =========================*/
 
-            if (nombreHoja === "matriculas de honor 2") {
+            if (nombreHoja === "matriculas de honor 2026-1") {
 
                 console.log("HOJA 2 ENCONTRADA");
                 console.log("Encabezados:", Object.keys(filas[0] || {}));
