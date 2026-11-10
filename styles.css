@@ -1,441 +1,453 @@
+
+/* =========================================
+   1. CONFIGURACIÓN GENERAL
+========================================= */
+
+:root {
+    --vinotinto: #8C1919;
+    --vinotinto-oscuro: #641010;
+    --vinotinto-claro: #a92b2b;
+    --fondo: #f4f5f7;
+    --blanco: #ffffff;
+    --texto: #30343b;
+    --borde: #e2e5e9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #F8F9FA;
+    background: var(--fondo);
+    color: var(--texto);
+    margin: 0;
 }
 
-.hero {
-    background: #ffffff;
+/* =========================================
+   2. ENCABEZADO
+========================================= */
+
+.navbar {
+    background: var(--blanco) !important;
+    padding: 12px 0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    position: relative;
+    z-index: 10;
 }
 
-.hero .card {
-    border-radius: 1rem;
+.navbar .container-fluid {
+    max-width: 1350px;
 }
 
-.container {
-    width: 90%;
-    margin: auto;
-    padding: 1rem;
-
+.navbar-brand {
+    margin-right: 20px;
 }
 
-.navbar-logo {
-    max-height: 56px;
-    width: auto;
+.navbar-brand img {
+    width: auto !important;
+    height: 65px !important;
+    max-width: 180px;
+    object-fit: contain;
 }
+
 .navbar-title {
-    font-family: fangsong;
-    /* font-size: 1rem; */
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--vinotinto);
+    letter-spacing: 0.3px;
 }
 
-/* ACCORDION */
+/* =========================================
+   3. CARRUSEL
+========================================= */
+
+.custom-carousel {
+    position: relative;
+    overflow: hidden;
+    background: #222;
+}
+
+.custom-carousel .carousel-item {
+    height: 430px;
+}
+
+.custom-carousel img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.42);
+}
+
+.custom-caption {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    padding: 25px;
+}
+
+.custom-caption h1 {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+    margin-bottom: 15px;
+}
+
+.custom-caption p {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.custom-caption a:hover {
+    color: #f2dada !important;
+}
+
+.carousel-indicators button {
+    width: 30px !important;
+    height: 5px !important;
+    border-radius: 5px;
+}
+
+/* =========================================
+   4. CONTENIDO PRINCIPAL
+========================================= */
+
+.container.my-4 {
+    width: 92%;
+    max-width: 1250px;
+    margin: 35px auto !important;
+    padding: 0;
+}
+
+.seccion-recuadro {
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 15px;
+    padding: 28px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.045);
+    transition: box-shadow 0.3s ease;
+}
+
+.seccion-recuadro:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.075);
+}
+
+/* =========================================
+   5. TÍTULOS DE LAS SECCIONES
+========================================= */
+
+.titulo-seccion {
+    color: var(--vinotinto);
+    font-size: 25px;
+    font-weight: 750;
+    padding-bottom: 15px;
+    margin-bottom: 22px;
+    border-bottom: 3px solid var(--vinotinto);
+    display: flex;
+    align-items: center;
+}
+
+/* =========================================
+   6. BOTONES DESPLEGABLES
+========================================= */
+
 .accordion {
     width: 100%;
-    font-size: 1.2rem;
-    background: #8C1919;
-    color: #fff;
-    /* mejor contraste */
-    padding: 1rem 1.2rem;
-    margin: 0.8rem 0;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 650;
+    text-align: left;
+
+    background: var(--vinotinto);
+    color: var(--blanco);
+
+    padding: 17px 22px;
+    margin: 9px 0;
+
     border: none;
-    border-radius: 8px;
+    border-radius: 9px;
     cursor: pointer;
-    font-weight: 500;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    transition: all 0.3s ease;
+    transition: background 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
 }
 
-/* Hover elegante */
 .accordion:hover {
-    background: #a32020;
+    background: var(--vinotinto-claro);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 12px rgba(140, 25, 25, 0.2);
 }
 
-/* Estado activo */
 .accordion.active {
-    background: #6e1313;
+    background: var(--vinotinto-oscuro);
+    border-radius: 9px 9px 0 0;
 }
 
-/* Icono (flecha) */
+/* Flecha */
 .accordion::after {
-    content: "▼";
-    font-size: 0.9rem;
+    content: "⌄";
+    font-size: 23px;
+    line-height: 15px;
     transition: transform 0.3s ease;
 }
 
-/* Rotación al abrir */
 .accordion.active::after {
     transform: rotate(180deg);
 }
 
+/* =========================================
+   7. CONTENIDO DESPLEGABLE
+========================================= */
+
 .panel {
     display: none;
-    padding: 10px 0;
+    padding: 18px 12px;
+    background: #fafafa;
+    border: 1px solid var(--borde);
+    border-top: none;
+    border-radius: 0 0 9px 9px;
+    margin-bottom: 15px;
 }
 
-/* GRID */
+/* =========================================
+   8. TABLAS DE MEJORES PROMEDIOS
+========================================= */
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
 }
 
-/* Responsive Grid */
-@media (max-width: 1024px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* COLUMNAS */
-.col {
-    background: #e5e5e5;
-    padding: 10px;
-    border-radius: 5px;
+.grid .col {
+    min-width: 0;
+    background: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
 }
 
 .col-header {
     display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    background: var(--vinotinto);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 11px;
+    border-radius: 7px;
+    margin-bottom: 12px;
 }
 
-.col-header a {
-    color: #8C1919;
-    text-decoration: none;
-    font-size: 12px;
-}
-
-/* TABLA */
 .tabla {
-    max-height: 250px;
+    max-height: 280px;
     overflow-y: auto;
+    border-radius: 6px;
 }
+
+/* =========================================
+   9. TABLAS GENERALES
+========================================= */
 
 table {
     width: 100%;
-    font-size: 12px;
+    border-collapse: collapse;
+    font-size: 13px;
 }
 
-th {
+table th {
     text-align: left;
-    color: #8C1919;
+    color: var(--vinotinto);
+    font-weight: 700;
+    padding: 11px 9px;
+    background: #f5eeee;
 }
 
-td {
-    padding: 5px 0;
-    border-bottom: 1px solid #ccc;
+table td {
+    padding: 10px 9px;
+    border-bottom: 1px solid #e8e8e8;
+    color: #414141;
 }
 
-.custom-carousel img {
-    filter: brightness(0.4) sepia(0.3) hue-rotate(-10deg);
+table tbody tr:nth-child(even) {
+    background: #fafafa;
 }
 
-img {
-    width: 100%;
-    height: 25rem;
-    object-fit: cover;
-    object-position: center;
+table tbody tr:hover {
+    background: #f5e8e8;
+    transition: background 0.2s ease;
 }
 
-/* --- SECCIÓN MATRÍCULAS DE HONOR --- */
-.Matriculas {
-    background: #ffffff; /* Fondo claro para resaltar del resto */
-    padding: 4rem 0;
-    margin: 2rem auto;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
-}
+/* =========================================
+   10. MATRÍCULAS DE HONOR
+========================================= */
 
-.container_Matriculas {
-    display: flex;
-    gap: 3rem;
-    align-items: center;
-    padding: 0 2rem;
-    margin-bottom: 2rem;
-}
-
-/* Títulos y Texto */
-.Matriculas h4 {
-    color: #8C1919;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 3px solid #8C1919;
-    display: inline-block;
-}
-
-.Matriculas p {
-    color: #444;
-    font-size: 1.05rem;
+.info {
+    font-size: 14px;
     line-height: 1.8;
+    color: #4c5055;
+    padding: 10px 8px 15px;
 }
 
-.Matriculas ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.Matriculas ul li {
+.info p {
     margin-bottom: 12px;
-    padding-left: 30px;
-    position: relative;
-    color: #555;
 }
 
-/* Viñetas personalizadas (Check) */
-.Matriculas ul li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #8C1919;
-    font-weight: bold;
+.info ul {
+    padding-left: 25px;
 }
 
-/* Contenedor de Imagen con Efecto */
-.img-container {
-    flex: 0 0 45%;
-    height: 300px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 15px 15px 0px rgba(140, 25, 25, 0.1);
+.info li {
+    margin-bottom: 7px;
 }
 
-.img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.img-container:hover img {
-    transform: scale(1.05);
-}
-
-/* Acordeón de Matrículas Especial */
-.accordion_matriculas {
-    background: #8C1919 !important;
-    color: white !important;
-    border-radius: 12px !important;
-    font-weight: 600;
-    margin: 0 2rem !important;
-    width: calc(100% - 4rem) !important;
-    transition: 0.3s;
-}
-
-.accordion_matriculas:hover {
-    background: #6e1313 !important;
-    box-shadow: 0 5px 15px rgba(140, 25, 25, 0.3);
-}
-
-/* Tabla de Honor Premium */
 .tabla-honor {
     background: white;
-    margin: 1rem 2rem;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #e0e0e0;
-}
-
-.tabla-honor table {
-    margin-bottom: 0;
-}
-
-.tabla-honor thead {
-    background: #f8f9fa;
-}
-
-.tabla-honor th {
-    color: #8C1919;
-    padding: 15px;
-    font-weight: 700;
-    border-bottom: 2px solid #eee;
-}
-
-.tabla-honor td {
-    padding: 15px;
-    vertical-align: middle;
-    border-top: 1px solid #f1f1f1;
-}
-
-/* Resaltar fila al pasar el mouse */
-.tabla-honor tbody tr:hover {
-    background-color: #fff9f9;
-}
-
-/* Dot de estado en la tabla */
-.check {
-    width: 10px;
-    height: 10px;
-    background: #27ae60;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto;
-    box-shadow: 0 0 8px rgba(39, 174, 96, 0.5);
-}
-
-/* BOTONES DE NAVEGACIÓN  */
-/* Contenedor principal para dar aire a los botones */
-.container.text-center.mt-4 {
-    padding: 30px 10px;
-}
-
-/* Redefinición del botón personalizado */
-.btn-outline-dark.mx-2 {
-    border: 2px solid #8C1919; /* Color UD */
-    color: #8C1919;
-    background: transparent;
-    border-radius: 12px; /* Esquinas modernas, no circulares */
-    padding: 12px 24px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 15px; /* Para cuando colapsen en móvil */
-}
-
-/* Efecto Hover: El botón se llena de color y se eleva */
-.btn-outline-dark.mx-2:hover {
-    background-color: #8C1919;
-    color: #ffffff;
-    transform: translateY(-5px); /* Elevación sutil */
-    box-shadow: 0 10px 20px rgba(140, 25, 25, 0.2);
-    border-color: #8C1919;
-}
-
-/* Efecto Click (Active) */
-.btn-outline-dark.mx-2:active {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(140, 25, 25, 0.2);
-}
-
-/* Estilo diferenciado para botones de enlaces externos o secundarios */
-.btn-outline-dark[href*="practicas"], 
-.btn-outline-dark[href*="Tramites"] {
-    border-color: #333;
-    color: #333;
-}
-
-.btn-outline-dark[href*="practicas"]:hover, 
-.btn-outline-dark[href*="Tramites"]:hover {
-    background-color: #333;
-    color: #fff;
-    border-color: #333;
-}
-
-
-/* Responsive */
-@media (max-width: 992px) {
-    .container_Matriculas {
-        flex-direction: column;
-        text-align: center;
-    }
-    .img-container {
-        width: 100%;
-        box-shadow: none;
-    }
-    .Matriculas h4 {
-        display: block;
-        margin: 0 auto 20px;
-    }
-}
-
-.img-container {
-    flex-shrink: 0;
-    min-width: 40%;
-    height: 20rem;
-}
-
-.img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    margin: 0;
-}
-
-.accordion_matriculas {
-    color: #8C1919;
-    font-weight: 500;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-/* TABLAS */
-.tabla-container {
-    width: 100%;
-}
-
-/* TABLA */
-.tabla-honor {
-    background: #eaeaea;
-    border-radius: 8px;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
     overflow-x: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.035);
 }
 
 .tabla-honor table {
-    width: 100%;
+    margin: 0;
     min-width: 500px;
 }
 
-/* ENCABEZADO */
 .tabla-honor thead {
-    background: #f5f5f5;
+    background: var(--vinotinto);
 }
 
 .tabla-honor th {
-    padding: 12px;
+    background: var(--vinotinto);
+    color: white;
+    padding: 15px;
     font-size: 13px;
-    text-align: left;
-    color: #333;
 }
 
-/* FILAS */
 .tabla-honor td {
-    padding: 12px;
+    padding: 13px 15px;
     font-size: 13px;
-    border-top: 1px solid #ddd;
 }
 
-/* EFECTO HOVER */
 .tabla-honor tbody tr:hover {
-    background: #dcdcdc;
+    background: #f7eaea;
 }
 
-/* Responsive tabla */
-@media (max-width: 768px) {
-    .tabla-honor {
-        overflow-x: auto;
-    }
-    
-    .tabla-honor th,
-    .tabla-honor td {
-        padding: 10px 8px;
-        font-size: 12px;
-    }
-}
-
-/* ICONO CHECK */
+/* Indicador de matrícula */
 .check {
-    width: 12px;
-    height: 12px;
-    background: #0f766e;
+    width: 11px;
+    height: 11px;
+    background: #16846b;
     border-radius: 50%;
     display: inline-block;
+}
+
+/* =========================================
+   11. BARRAS DE DESPLAZAMIENTO
+========================================= */
+
+.tabla::-webkit-scrollbar {
+    width: 7px;
+}
+
+.tabla::-webkit-scrollbar-thumb {
+    background: #c7a0a0;
+    border-radius: 10px;
+}
+
+.tabla::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* =========================================
+   12. ADAPTACIÓN A TABLETAS Y CELULARES
+========================================= */
+
+@media (max-width: 900px) {
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .seccion-recuadro {
+        padding: 20px;
+    }
+
+    .custom-carousel .carousel-item,
+    .custom-carousel img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar .container-fluid {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .navbar-brand img {
+        height: 48px !important;
+    }
+
+    .navbar-title {
+        font-size: 14px;
+        text-align: right;
+    }
+
+    .custom-carousel .carousel-item,
+    .custom-carousel img {
+        height: 270px;
+    }
+
+    .custom-caption h1 {
+        font-size: 25px;
+    }
+
+    .custom-caption p {
+        font-size: 14px;
+    }
+
+    .container.my-4 {
+        width: 94%;
+        margin-top: 20px !important;
+    }
+
+    .seccion-recuadro {
+        padding: 15px;
+        border-radius: 11px;
+    }
+
+    .titulo-seccion {
+        font-size: 20px;
+    }
+
+    .accordion {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        padding: 10px 5px;
+    }
+
+    .info {
+        font-size: 13px;
+    }
 }
