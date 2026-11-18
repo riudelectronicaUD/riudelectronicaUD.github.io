@@ -29,9 +29,8 @@ fetch('Mejores estudiantes.xlsx')
             if (nombreHoja === "matriculas de honor 2025-3") {
 
                 listaMatriculas = filas.map(row => ({
-                    nombre: row["Periodo de ingreso"] ? String(row["Periodo de ingreso"]).trim() : "",
                     codigo: row["Codigo"] ? String(row["Codigo"]).trim() : "",
-                    periodo: row["Nombre"] ? String(row["Nombre"]).trim() : ""
+                    periodo: row["Periodo de ingreso"] ? String(row["Periodo de ingreso"]).trim() : ""
                 }));
 
                 return;
@@ -48,9 +47,8 @@ fetch('Mejores estudiantes.xlsx')
                 console.log("Registros encontrados:", filas);
 
                 listaMatriculas2 = filas.map(row => ({
-                    nombre: row["Periodo de ingreso"] ? String(row["Periodo de ingreso"]).trim() : "",
                     codigo: row["Codigo"] ? String(row["Codigo"]).trim() : "",
-                    periodo: row["Nombre"] ? String(row["Nombre"]).trim() : ""
+                    periodo: row["Periodo de ingreso"] ? String(row["Periodo de ingreso"]).trim() : ""
                 }));
 
                 console.log("Datos preparados para la segunda tabla:", listaMatriculas2);
@@ -129,7 +127,6 @@ fetch('Mejores estudiantes.xlsx')
         =========================*/
 
         function renderMatriculas(lista, idTabla) {
-
             const tabla = document.getElementById(idTabla);
 
             if (!tabla) return;
@@ -137,8 +134,7 @@ fetch('Mejores estudiantes.xlsx')
             tabla.innerHTML = "";
 
             lista.forEach(est => {
-
-                let semFormateado = est.periodo;
+                let semFormateado = String(est.periodo || "").trim();
 
                 if (semFormateado.length === 5 && !semFormateado.includes("-")) {
                     semFormateado = semFormateado.slice(0, 4) + "-" + semFormateado.slice(4);
@@ -147,14 +143,11 @@ fetch('Mejores estudiantes.xlsx')
                 tabla.innerHTML += `
                     <tr>
                         <td><span class="check"></span></td>
-                        <td>${est.nombre}</td>
                         <td>${est.codigo}</td>
                         <td>${semFormateado}</td>
                     </tr>
                 `;
-
             });
-
         }
 
         // Primera tabla
@@ -172,27 +165,22 @@ fetch('Mejores estudiantes.xlsx')
 =========================*/
 
 function renderTablaPromedios(lista) {
-
     return `
         <table>
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Cód.</th>
+                    <th>Código</th>
                 </tr>
             </thead>
-
             <tbody>
                 ${lista.map(e => `
                     <tr>
-                        <td>${e.nombre}</td>
                         <td>${e.codigo}</td>
                     </tr>
                 `).join("")}
             </tbody>
         </table>
     `;
-
 }
 
 
@@ -213,4 +201,4 @@ document.querySelectorAll(".accordion").forEach(btn => {
 
     });
 
-});
+}); 
